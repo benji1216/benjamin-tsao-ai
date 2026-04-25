@@ -233,7 +233,7 @@ export default function Portfolio() {
 
         <div key={lang} className="space-y-10 max-w-3xl mx-auto">
           <div className="p-6 rounded-xl bg-white border border-gray-200">
-            <div className="flex justify-between items-start">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
               <div>
                 <h3 className="text-lg font-medium text-gray-900">
                   {content[lang].education.ncuName}
@@ -243,7 +243,7 @@ export default function Portfolio() {
                   {content[lang].education.ncuDegree}
                 </p>
               </div>
-              <span className="text-sm text-gray-400">2019 — 2024</span>
+              <span className="text-sm text-gray-400 sm:text-right">2019 — 2024</span>
             </div>
             <p className="text-gray-600 text-sm mt-3">
               {content[lang].education.ncuDesc}
@@ -251,7 +251,7 @@ export default function Portfolio() {
           </div>
 
           <div className="p-6 rounded-xl bg-white border border-gray-200">
-            <div className="flex justify-between items-start">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
               <div>
                 <h3 className="text-lg font-medium text-gray-900">
                   {content[lang].education.itiName}
@@ -260,7 +260,7 @@ export default function Portfolio() {
                   {content[lang].education.itiProgram}
                 </p>
               </div>
-              <span className="text-sm text-gray-400">2025 — 2026</span>
+              <span className="text-sm text-gray-400 sm:text-right">2025 — 2026</span>
             </div>
             <p className="text-gray-600 text-sm mt-3">
               {content[lang].education.itiDesc}
@@ -294,10 +294,10 @@ export default function Portfolio() {
 
         <div className="space-y-16">
           {content[lang].projects.map((project, index) => (
-            <div key={index} className="group max-w-3xl mx-auto rounded-xl overflow-hidden bg-white/60 backdrop-blur border border-gray-200 hover:shadow-xl transition duration-300 md:hover:scale-[1.01]">
+            <div key={index} className="group max-w-3xl mx-auto rounded-xl overflow-hidden bg-white/60 backdrop-blur border border-gray-200 hover:shadow-xl transition duration-300 md:hover:scale-[1.01] md:flex">
 
               {/* Image */}
-              <div className="w-full aspect-[16/9] max-h-[280px] bg-gray-200 overflow-hidden rounded-t-xl">
+              <div className="w-full md:w-1/2 aspect-[16/9] md:aspect-auto md:h-auto bg-gray-200 overflow-hidden md:rounded-l-xl md:rounded-t-none">
                 <img
                   src={index === 0 ? resumeImg : `https://placehold.co/800x400?text=Project+${index + 1}`}
                   alt="project preview"
@@ -306,7 +306,7 @@ export default function Portfolio() {
               </div>
 
               {/* Content */}
-              <div className="p-5 md:p-6 text-left">
+              <div className="p-5 md:p-6 text-left md:w-1/2 flex flex-col justify-center">
                 <h3 className="text-2xl font-semibold mb-3 bg-gradient-to-r from-gray-900 to-[#7c8395] bg-clip-text text-transparent">
                   {project.title}
                 </h3>
