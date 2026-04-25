@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import resumeImg from "./assets/projects/ai-resume.jpg";
 /*import jobImg from "./assets/projects/job.png";
@@ -36,8 +36,8 @@ const content = {
     projects: [
       {
         title: "AI Resume GPT",
-        description: "Built an AI-powered resume system using GPT, improving output consistency through structured prompt engineering.",
-        impact: "Improved resume quality and reduced editing time through structured prompt design",
+        description: "Built an AI-powered resume system using GPT with structured prompt engineering.",
+        impact: "Improved resume quality and reduced editing time",
       },
       {
         title: "AI Job Matching Automation",
@@ -136,7 +136,18 @@ const content = {
 export default function Portfolio() {
   const [lang, setLang] = useState("en");
   return (
-    <div className="bg-[#f4f3ef] text-gray-900 min-h-screen selection:bg-black selection:text-white">
+    <div className="relative bg-[#f5f4f1] text-gray-900 min-h-screen selection:bg-black selection:text-white overflow-hidden z-10 font-sans">
+
+      {/* Subtle animated background */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <div
+          className="absolute w-[500px] h-[500px] bg-[#c4b5fd]/50 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite] top-[-100px] left-[-100px]"
+        ></div>
+        <div
+          className="absolute w-[400px] h-[400px] bg-[#a5b4fc]/50 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite] bottom-[-100px] right-[-100px]"
+        ></div>
+      </div>
+
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full backdrop-blur bg-[#f7f6f3]/70 border-b border-gray-200 z-50">
@@ -173,13 +184,13 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero */}
-      <section className="px-4 md:px-6 pt-40 pb-16 max-w-5xl mx-auto">
+      <section className="px-4 md:px-6 pt-48 md:pt-56 pb-20 md:pb-28 max-w-5xl mx-auto">
         <div className="text-center">
-          <p className="text-xs text-gray-400 mb-6 tracking-[0.3em] uppercase">
+          <p className="text-[11px] text-gray-400 mb-8 tracking-[0.25em] uppercase">
             Portfolio
           </p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
+          <h1 className="text-5xl sm:text-6xl md:text-[92px] font-semibold tracking-tight leading-[1.02] mb-10">
             Benjamin{" "}
             <span className="relative inline-block group">
               <span className="relative z-10">Tsao</span>
@@ -187,7 +198,7 @@ export default function Portfolio() {
             </span>
           </h1>
 
-          <p className="text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed text-gray-500">
             <span className="text-gray-600">{content[lang].hero}</span>
           </p>
 
@@ -198,18 +209,16 @@ export default function Portfolio() {
           </div>
 
           <div className="mt-8 flex justify-center gap-4">
-            <a href="#projects" className="px-6 py-2 rounded-full bg-gradient-to-r from-[#7c8395] to-[#5f6675] text-white text-sm hover:bg-[#5f6675] hover:-translate-y-0.5 transition">
+            <a href="#projects" className="px-6 py-2 rounded-full bg-[#7c8395] text-white text-sm hover:bg-[#6b7280] transition duration-300">
               View Work
             </a>
-            <a href="#contact" className="px-6 py-2 rounded-full border border-gray-300 text-sm text-gray-700 hover:bg-gray-100 hover:-translate-y-0.5 transition">
+            <a href="#contact" className="px-6 py-2 rounded-full border border-gray-300 text-sm text-gray-700 hover:bg-gray-100 transition duration-300">
               Contact
             </a>
           </div>
         </div>
 
-        <div className="mt-20 flex justify-center">
-          <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-        </div>
+        {/* Section separation is now handled by background color alternation */}
       </section>
 
       {/* About */}
@@ -224,89 +233,29 @@ export default function Portfolio() {
           </p>
         </div>
       </section>
-
-      {/* Education */}
-      <section id="education" className="px-4 md:px-6 py-20 md:py-28 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
-          {content[lang].education.title}
-        </h2>
-
-        <div key={lang} className="space-y-10 max-w-3xl mx-auto">
-          <div className="p-6 rounded-xl bg-white border border-gray-200">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-              <div>
-                <h3 className="text-lg font-medium text-gray-900">
-                  {content[lang].education.ncuName}
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  {content[lang].education.ncuProgram}<br/>
-                  {content[lang].education.ncuDegree}
-                </p>
-              </div>
-              <span className="text-sm text-gray-400 sm:text-right">2019 — 2024</span>
-            </div>
-            <p className="text-gray-600 text-sm mt-3">
-              {content[lang].education.ncuDesc}
-            </p>
-          </div>
-
-          <div className="p-6 rounded-xl bg-white border border-gray-200">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-              <div>
-                <h3 className="text-lg font-medium text-gray-900">
-                  {content[lang].education.itiName}
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  {content[lang].education.itiProgram}
-                </p>
-              </div>
-              <span className="text-sm text-gray-400 sm:text-right">2025 — 2026</span>
-            </div>
-            <p className="text-gray-600 text-sm mt-3">
-              {content[lang].education.itiDesc}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Certification */}
-      <section id="certification" className="px-4 md:px-6 py-20 md:py-28 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
-          {content[lang].nav.certification}
-        </h2>
-
-        <div className="space-y-8 max-w-3xl mx-auto">
-          {content[lang].certification.map((item) => (
-            <div key={item} className="group p-5 rounded-xl bg-white/60 backdrop-blur border border-gray-200 hover:shadow-lg transition-shadow duration-200">
-              <h3 className="text-md font-medium text-gray-900">
-                {item}
-              </h3>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Section separation is now handled by background color alternation */}
 
       {/* Projects */}
-      <section id="projects" className="px-4 md:px-6 py-20 md:py-28 max-w-5xl mx-auto">
+      <section id="projects" className="px-4 md:px-6 py-32 md:py-40 max-w-5xl mx-auto bg-[#f5f4f1]">
         <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-20 text-center">
           {content[lang].nav.work}
         </h2>
 
-        <div className="space-y-16">
+        <div key={lang} className="space-y-16">
           {content[lang].projects.map((project, index) => (
-            <div key={index} className="group max-w-3xl mx-auto rounded-xl overflow-hidden bg-white/60 backdrop-blur border border-gray-200 hover:shadow-xl transition duration-300 md:hover:scale-[1.01] md:flex">
+            <div key={index} className="group max-w-3xl mx-auto rounded-xl overflow-hidden bg-white/60 backdrop-blur border border-gray-100 hover:shadow-lg transition duration-300 md:flex">
 
               {/* Image */}
-              <div className="w-full md:w-1/2 aspect-[16/9] md:aspect-auto md:h-auto bg-gray-200 overflow-hidden md:rounded-l-xl md:rounded-t-none">
+              <div className="w-full md:w-[45%] aspect-[16/9] bg-gray-200 overflow-hidden md:rounded-l-xl md:rounded-t-none flex-shrink-0">
                 <img
                   src={index === 0 ? resumeImg : `https://placehold.co/800x400?text=Project+${index + 1}`}
                   alt="project preview"
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  className="w-full h-full object-cover group-hover:scale-[1.01] transition duration-500 will-change-transform"
                 />
               </div>
 
               {/* Content */}
-              <div className="p-5 md:p-6 text-left md:w-1/2 flex flex-col justify-center">
+              <div className="p-5 md:p-6 text-left md:w-[55%] flex flex-col justify-center">
                 <h3 className="text-2xl font-semibold mb-3 bg-gradient-to-r from-gray-900 to-[#7c8395] bg-clip-text text-transparent">
                   {project.title}
                 </h3>
@@ -335,27 +284,96 @@ export default function Portfolio() {
           ))}
         </div>
       </section>
+      {/* Section separation is now handled by background color alternation */}
 
       {/* Skills */}
-      <section id="skills" className="px-4 md:px-6 py-20 md:py-28 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
-          {content[lang].nav.skills}
-        </h2>
+      <section id="skills" className="w-full bg-[#eeede8]">
+        <div className="px-4 md:px-6 py-32 md:py-40 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
+            {content[lang].nav.skills}
+          </h2>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          {content[lang].skills.map((skill) => (
-            <span
-              key={skill}
-              className="px-6 py-2 bg-gray-100 rounded-full text-sm hover:bg-[#7c8395] hover:text-white hover:-translate-y-0.5 transition"
-            >
-              {skill}
-            </span>
-          ))}
+          <div className="flex flex-wrap justify-center gap-4">
+            {content[lang].skills.map((skill) => (
+              <span
+                key={skill}
+                className="px-6 py-2 bg-gray-100 rounded-full text-sm hover:bg-[#7c8395] hover:text-white hover:-translate-y-[1px] transition duration-300"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
+      {/* Section separation is now handled by background color alternation */}
+
+      {/* Education */}
+      <section id="education" className="px-4 md:px-6 py-32 md:py-40 max-w-4xl mx-auto bg-[#f5f4f1]">
+        <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
+          {content[lang].education.title}
+        </h2>
+
+        <div key={lang} className="space-y-10 max-w-3xl mx-auto">
+          <div className="p-6 rounded-xl bg-white border border-gray-100">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+              <span className="text-sm text-gray-400 order-1 sm:order-2 sm:text-right">2019 — 2024</span>
+              <div className="order-2 sm:order-1">
+                <h3 className="text-lg font-medium text-gray-900">
+                  {content[lang].education.ncuName}
+                </h3>
+                <p className="text-sm text-gray-500 mt-1">
+                  {content[lang].education.ncuProgram}<br/>
+                  {content[lang].education.ncuDegree}
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-600 text-sm mt-3">
+              {content[lang].education.ncuDesc}
+            </p>
+          </div>
+
+          <div className="p-6 rounded-xl bg-white border border-gray-100">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+              <span className="text-sm text-gray-400 order-1 sm:order-2 sm:text-right">2025 — 2026</span>
+              <div className="order-2 sm:order-1">
+                <h3 className="text-lg font-medium text-gray-900">
+                  {content[lang].education.itiName}
+                </h3>
+                <p className="text-sm text-gray-500 mt-1">
+                  {content[lang].education.itiProgram}
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-600 text-sm mt-3">
+              {content[lang].education.itiDesc}
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* Section separation is now handled by background color alternation */}
+
+      {/* Certification */}
+      <section id="certification" className="w-full bg-[#eeede8]">
+        <div className="px-4 md:px-6 py-32 md:py-40 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
+            {content[lang].nav.certification}
+          </h2>
+
+          <div className="space-y-8 max-w-3xl mx-auto">
+            {content[lang].certification.map((item) => (
+              <div key={item} className="group p-5 rounded-xl bg-white/60 backdrop-blur border border-gray-100 hover:shadow-lg transition-shadow duration-200 md:hover:scale-[1.005]">
+                <h3 className="text-md font-medium text-gray-900">
+                  {item}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Section separation is now handled by background color alternation */}
 
       {/* Contact */}
-      <section id="contact" className="px-4 md:px-6 py-40 text-center">
+      <section id="contact" className="px-4 md:px-6 py-40 text-center bg-[#f5f4f1]">
         <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-4">{content[lang].contact.title}</h2>
         <p className="text-gray-600 mb-8">
           {content[lang].contact.desc}
@@ -363,7 +381,7 @@ export default function Portfolio() {
 
         <a
           href="mailto:benjamintsao2000@gmail.com"
-          className="inline-block px-10 py-4 bg-[#7c8395] text-white rounded-full hover:scale-110 hover:shadow-xl hover:bg-[#5f6675] hover:-translate-y-0.5 transition"
+          className="inline-block px-10 py-4 bg-[#7c8395] text-white rounded-full hover:bg-[#6b7280] transition duration-300"
         >
           {content[lang].contact.button}
         </a>
