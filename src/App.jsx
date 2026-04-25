@@ -157,11 +157,11 @@ export default function Portfolio() {
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full backdrop-blur bg-[#f7f6f3]/70 border-b border-gray-200 z-50">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 grid grid-cols-3 items-center">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex md:grid md:grid-cols-3 items-center">
           {/* Left empty cell for balancing */}
-          <div></div>
+          <div className="hidden md:block"></div>
           {/* Nav (mobile scroll / desktop centered) */}
-          <div className="overflow-x-auto md:overflow-visible whitespace-nowrap no-scrollbar flex justify-center">
+          <div className="flex-1 overflow-x-auto md:overflow-visible whitespace-nowrap no-scrollbar flex justify-start md:justify-center">
             <div className="flex items-center gap-4 md:gap-8 text-sm text-gray-600">
               <a href="#about" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.about}</a>
               <a href="#projects" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.work}</a>
