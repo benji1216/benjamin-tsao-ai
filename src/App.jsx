@@ -159,7 +159,10 @@ export default function Portfolio() {
       <nav className="fixed top-0 left-0 w-full backdrop-blur bg-[#f7f6f3]/70 border-b border-gray-200 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <span className="font-medium text-gray-800">BT</span>
-          <div className="space-x-6 text-sm text-gray-600 flex items-center">
+          <div className="hidden md:flex space-x-6 text-sm text-gray-600 items-center">
+          <button className="md:hidden text-sm text-gray-700">
+            Menu
+          </button>
             <a href="#about" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.about}</a>
             <a href="#projects" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.work}</a>
             <a href="#skills" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.skills}</a>
@@ -186,13 +189,13 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero */}
-      <section className="px-6 pt-40 pb-16 max-w-5xl mx-auto">
+      <section className="px-4 md:px-6 pt-40 pb-16 max-w-5xl mx-auto">
         <div className="text-center">
           <p className="text-xs text-gray-400 mb-6 tracking-[0.3em] uppercase">
             Portfolio
           </p>
 
-          <h1 className="text-6xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
             Benjamin{" "}
             <span className="relative inline-block group">
               <span className="relative z-10">Tsao</span>
@@ -226,7 +229,7 @@ export default function Portfolio() {
       </section>
 
       {/* About */}
-      <section id="about" className="px-6 pt-16 pb-24 bg-[#eeede8]">
+      <section id="about" className="px-4 md:px-6 pt-16 pb-24 bg-[#eeede8]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-6">{content[lang].nav.about}</h2>
           <p className="text-gray-600 leading-relaxed max-w-2xl mx-auto">
@@ -239,7 +242,7 @@ export default function Portfolio() {
       </section>
 
       {/* Education */}
-      <section id="education" className="px-6 py-24 max-w-4xl mx-auto">
+      <section id="education" className="px-4 md:px-6 py-20 md:py-28 max-w-4xl mx-auto">
         <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
           {content[lang].education.title}
         </h2>
@@ -283,7 +286,7 @@ export default function Portfolio() {
       </section>
 
       {/* Certification */}
-      <section id="certification" className="px-6 py-24 max-w-4xl mx-auto">
+      <section id="certification" className="px-4 md:px-6 py-20 md:py-28 max-w-4xl mx-auto">
         <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
           {content[lang].nav.certification}
         </h2>
@@ -300,14 +303,14 @@ export default function Portfolio() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="px-6 py-28 max-w-5xl mx-auto">
+      <section id="projects" className="px-4 md:px-6 py-20 md:py-28 max-w-5xl mx-auto">
         <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-20 text-center">
           {content[lang].nav.work}
         </h2>
 
         <div className="space-y-24">
           {content[lang].projects.map((project, index) => (
-            <div key={index} className="group text-left max-w-3xl mx-auto border-l-2 border-gray-200 pl-6 hover:border-[#7c8395] hover:bg-white/40 rounded-lg transition duration-300 hover:scale-[1.02] hover:shadow-xl">
+            <div key={index} className="group text-left max-w-3xl mx-auto border-l-2 border-gray-200 pl-4 md:pl-6 hover:border-[#7c8395] hover:bg-white/40 rounded-lg transition duration-300 md:hover:scale-[1.02] hover:shadow-xl">
 
               <h3 className="text-2xl font-semibold mb-3 group-hover:translate-x-1 group-hover:text-[#6b7280] transition bg-gradient-to-r from-gray-900 to-[#7c8395] bg-clip-text text-transparent">
                 {project.title}
@@ -338,7 +341,7 @@ export default function Portfolio() {
       </section>
 
       {/* Skills */}
-      <section id="skills" className="px-6 py-28 max-w-4xl mx-auto">
+      <section id="skills" className="px-4 md:px-6 py-20 md:py-28 max-w-4xl mx-auto">
         <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
           {content[lang].nav.skills}
         </h2>
@@ -356,7 +359,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="px-6 py-40 text-center">
+      <section id="contact" className="px-4 md:px-6 py-40 text-center">
         <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-4">{content[lang].contact.title}</h2>
         <p className="text-gray-600 mb-8">
           {content[lang].contact.desc}
