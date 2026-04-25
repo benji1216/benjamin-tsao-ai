@@ -193,7 +193,11 @@ export default function Portfolio() {
           </p>
 
           <h1 className="text-6xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
-            Benjamin <span className="text-[#7c8395]">Tsao</span>
+            Benjamin{" "}
+            <span className="relative inline-block group">
+              <span className="relative z-10">Tsao</span>
+              <span className="absolute left-0 bottom-2 w-full h-3 bg-gradient-to-r from-[#d6d3ff] to-[#c7d2fe] rounded-sm -z-0 opacity-80 transition-all duration-300 group-hover:h-4"></span>
+            </span>
           </h1>
 
           <p className="text-xl max-w-2xl mx-auto leading-relaxed">
