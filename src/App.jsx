@@ -157,34 +157,34 @@ export default function Portfolio() {
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full backdrop-blur bg-[#f7f6f3]/70 border-b border-gray-200 z-50">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center gap-4">
-          <span className="font-medium text-gray-800 shrink-0">BT</span>
-
-          {/* Scrollable nav */}
-          <div className="flex-1 overflow-x-auto whitespace-nowrap no-scrollbar">
-            <div className="inline-flex items-center gap-4 md:gap-6 text-sm text-gray-600">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 grid grid-cols-3 items-center">
+          {/* Left empty cell for balancing */}
+          <div></div>
+          {/* Nav (mobile scroll / desktop centered) */}
+          <div className="overflow-x-auto md:overflow-visible whitespace-nowrap no-scrollbar flex justify-center">
+            <div className="flex items-center gap-4 md:gap-8 text-sm text-gray-600">
               <a href="#about" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.about}</a>
               <a href="#projects" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.work}</a>
               <a href="#skills" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.skills}</a>
               <a href="#education" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.education}</a>
               <a href="#certification" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.certification}</a>
               <a href="#contact" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.contact}</a>
-              <div className="ml-2 inline-flex items-center text-xs">
-                <button
-                  onClick={() => setLang("en")}
-                  className={`px-2 ${lang === "en" ? "text-gray-900 font-medium" : "text-gray-400"}`}
-                >
-                  EN
-                </button>
-                <span className="text-gray-300">|</span>
-                <button
-                  onClick={() => setLang("zh")}
-                  className={`px-2 ${lang === "zh" ? "text-gray-900 font-medium" : "text-gray-400"}`}
-                >
-                  中
-                </button>
-              </div>
             </div>
+          </div>
+          <div className="flex items-center justify-end text-sm">
+            <button
+              onClick={() => setLang("en")}
+              className={`px-2 flex items-center ${lang === "en" ? "text-gray-900 font-medium" : "text-gray-400"}`}
+            >
+              EN
+            </button>
+            <span className="text-gray-300">|</span>
+            <button
+              onClick={() => setLang("zh")}
+              className={`px-2 flex items-center ${lang === "zh" ? "text-gray-900 font-medium" : "text-gray-400"}`}
+            >
+              中
+            </button>
           </div>
         </div>
       </nav>
