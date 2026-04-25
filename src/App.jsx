@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import resumeImg from "./assets/projects/ai-resume.jpg";
+/*import jobImg from "./assets/projects/job.png";
+import researchImg from "./assets/projects/research.png";*/
 
 const content = {
   en: {
@@ -11,11 +14,11 @@ const content = {
       certification: "Certification",
       contact: "Contact",
     },
-    hero: "Turning AI into real business impact.",
+    hero: "I build AI systems that solve real business problems.",
     about1:
-      "With a background in computer science and international business training, I focus on using AI and automation to solve real-world problems.",
+      "With a background in computer science and international business, I build AI and automation solutions that solve real-world problems.",
     about2:
-      "I enjoy bridging technical execution with strategic thinking, turning ideas into working systems.",
+      "I combine technical execution with business thinking to create systems that are not only built — but actually used.",
     try: "Try the live AI system →",
     education: {
       title: "Education",
@@ -32,19 +35,19 @@ const content = {
     },
     projects: [
       {
-        title: "AI Resume Assistant",
-        description: "Designed and built an AI-powered resume system using GPT. Improved response consistency through prompt engineering.",
-        impact: "Improved clarity and user interaction experience",
+        title: "AI Resume GPT",
+        description: "Built an AI-powered resume system using GPT, improving output consistency through structured prompt engineering.",
+        impact: "Improved resume quality and reduced editing time through structured prompt design",
       },
       {
         title: "AI Job Matching Automation",
-        description: "Built an automated job filtering pipeline using n8n and APIs.",
-        impact: "Reduced job search time from 1+ hour to minutes",
+        description: "Developed an automated job filtering pipeline using n8n and multiple APIs.",
+        impact: "Reduced job search time from 1+ hour to under 5 minutes through automation",
       },
       {
         title: "Cross-Cultural Business Research",
-        description: "Led a team analyzing Saudi Arabian business culture using Hofstede framework.",
-        impact: "Ranked #1 out of 8 teams",
+        description: "Led a team analyzing Saudi Arabian business culture using the Hofstede framework to generate strategic insights.",
+        impact: "Delivered top-ranked analysis with actionable business insights",
       },
     ],
     skills: [
@@ -84,17 +87,17 @@ const content = {
     education: {
       title: "學歷",
       ncuName: "國立中央大學",
-      itiName: "外貿協會培訓中心（ITI）",
+      itiName: "ITI 外貿協會培訓中心國際企業經營班",
       ncuProgram: "資訊電機學院學士班",
       ncuDegree: "資訊工程與網路工程學士",
-      itiProgram: "國際企業經營班（一年期）",
+      itiProgram: "一年期商務英語組",
       ncuDesc: "專注於軟體工程、網路系統與 AI 應用。",
-      itiDesc: "接受國際商務、貿易實務與跨文化溝通訓練。",
+      itiDesc: "全英文國際商務、貿易實務與跨文化溝通訓練。",
     },
     projects: [
       {
-        title: "AI 履歷助理",
-        description: "使用 GPT 設計並開發 AI 履歷系統，透過提示詞優化提升回應品質。",
+        title: "互動式 AI 履歷",
+        description: "使用 GPT 設計並開發 AI 履歷機器人，透過結構化資訊和提示詞優化提升回應品質。",
         impact: "提升履歷內容清晰度與使用體驗",
       },
       {
@@ -129,26 +132,6 @@ const content = {
   },
 };
 
-const projects = [
-  {
-    title: "AI Resume Assistant",
-    description:
-      "Designed and built an AI-powered resume system using GPT. Improved response consistency through iterative prompt engineering and testing.",
-    impact: "Improved information clarity and user interaction experience",
-  },
-  {
-    title: "AI Job Matching Automation",
-    description:
-      "Built an automated job filtering pipeline using n8n and APIs (OpenAI, 104, LINE).",
-    impact: "Reduced job search time from 1+ hour to a few minutes",
-  },
-  {
-    title: "Cross-Cultural Business Research",
-    description:
-      "Led a team analyzing Saudi Arabian business culture using Hofstede framework.",
-    impact: "Ranked #1 out of 8 teams",
-  },
-];
 
 export default function Portfolio() {
   const [lang, setLang] = useState("en");
@@ -309,32 +292,44 @@ export default function Portfolio() {
           {content[lang].nav.work}
         </h2>
 
-        <div className="space-y-24">
+        <div className="space-y-16">
           {content[lang].projects.map((project, index) => (
-            <div key={index} className="group text-left max-w-3xl mx-auto border-l-2 border-gray-200 pl-4 md:pl-6 hover:border-[#7c8395] hover:bg-white/40 rounded-lg transition duration-300 md:hover:scale-[1.02] hover:shadow-xl">
+            <div key={index} className="group max-w-3xl mx-auto rounded-xl overflow-hidden bg-white/60 backdrop-blur border border-gray-200 hover:shadow-xl transition duration-300 md:hover:scale-[1.01]">
 
-              <h3 className="text-2xl font-semibold mb-3 group-hover:translate-x-1 group-hover:text-[#6b7280] transition bg-gradient-to-r from-gray-900 to-[#7c8395] bg-clip-text text-transparent">
-                {project.title}
-              </h3>
+              {/* Image */}
+              <div className="w-full aspect-[16/9] max-h-[280px] bg-gray-200 overflow-hidden rounded-t-xl">
+                <img
+                  src={index === 0 ? resumeImg : `https://placehold.co/800x400?text=Project+${index + 1}`}
+                  alt="project preview"
+                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+              </div>
 
-              <p className="text-gray-600 leading-relaxed mb-3">
-                {project.description}
-              </p>
+              {/* Content */}
+              <div className="p-5 md:p-6 text-left">
+                <h3 className="text-2xl font-semibold mb-3 bg-gradient-to-r from-gray-900 to-[#7c8395] bg-clip-text text-transparent">
+                  {project.title}
+                </h3>
 
-              <p className="text-sm text-[#9ca3af] italic">
-                → {project.impact}
-              </p>
+                <p className="text-gray-600 leading-relaxed mb-3">
+                  {project.description}
+                </p>
 
-              {(project.title === "AI Resume Assistant" || project.title === "AI 履歷助理") && (
-                <a
-                  href="https://chatgpt.com/g/g-69c026be51708191bda8b44b38665238-benjamin-tsao-s-ai-agent"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-3 text-sm text-[#7c8395] hover:underline"
-                >
-                  {content[lang].try}
-                </a>
-              )}
+                <p className="text-sm text-[#9ca3af] italic">
+                  → {project.impact}
+                </p>
+
+                {(project.title === "AI Resume GPT" || project.title === "互動式 AI 履歷") && (
+                  <a
+                    href="https://chatgpt.com/g/g-69c026be51708191bda8b44b38665238-benjamin-tsao-s-ai-agent"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-4 text-sm text-[#7c8395] hover:underline"
+                  >
+                    {content[lang].try}
+                  </a>
+                )}
+              </div>
 
             </div>
           ))}
