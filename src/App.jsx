@@ -37,33 +37,33 @@ const content = {
     projects: [
       {
         title: "AI Resume GPT",
-        description: "Built an AI-powered resume system using GPT with structured prompt engineering.",
-        impact: "Improved resume quality and reduced editing time",
+        description: "An AI-powered system that transforms raw experience into structured, high-quality resumes.\n\n• Prompt Engineering Pipeline\n• Structured Output Design\n• Iterative Feedback Loop",
+        impact: "Reduced resume editing time by ~80% and improved consistency across different job applications",
       },
       {
         title: "AI Job Matching System",
-        description: "Developed an automated job filtering pipeline using n8n and multiple APIs.",
-        impact: "Reduced job search time from 1+ hour to under 5 minutes through automation",
+        description: "An automated system that filters and prioritizes job opportunities using multi-source data pipelines.\n\n• API Integration (job platforms)\n• n8n Automation Workflow\n• Rule-based Filtering Engine",
+        impact: "Reduced job search time from 1+ hour to under 5 minutes through full automation",
       },
       {
         title: "RAG Knowledge System",
-        description: "Built a Retrieval-Augmented Generation system using Gemini API and Streamlit for structured knowledge querying.",
-        impact: "Enhanced information retrieval accuracy and usability",
+        description: "A retrieval-augmented system for structured knowledge querying with improved accuracy and context relevance.\n\n• RAG Architecture Design\n• Vector-based Retrieval\n• LLM Response Optimization",
+        impact: "Significantly improved answer accuracy and usability for complex information queries",
       },
       {
         title: "AI Factory Monitoring System",
-        description: "Simulated smart factory monitoring with automated data collection, anomaly detection, and AI analysis.",
-        impact: "Demonstrated predictive maintenance and data-driven operations capability",
+        description: "A simulated smart factory system for real-time monitoring, anomaly detection, and AI-driven insights.\n\n• Data Collection Pipeline\n• Anomaly Detection Logic\n• Predictive Analysis Layer",
+        impact: "Demonstrated practical use of AI in predictive maintenance and operational efficiency",
       },
       {
         title: "Cross-Cultural Business Strategy",
-        description: "Analyzed Saudi Arabian business culture using Hofstede framework and designed training strategies.",
-        impact: "Ranked #1 among 8 teams with actionable strategic insights",
+        description: "A strategic analysis system applying cultural frameworks to design actionable business strategies.\n\n• Hofstede Framework Analysis\n• Market Behavior Modeling\n• Strategy Translation",
+        impact: "Ranked #1 among 8 teams with clear, actionable insights for real-world business scenarios",
       },
       {
         title: "Technical Product Positioning",
-        description: "Translated complex battery technology into market positioning and delivered full English business presentation.",
-        impact: "Handled real-time Q&A on pricing, safety, and feasibility under pressure",
+        description: "A system-level approach to translating complex technology into clear market positioning and communication.\n\n• Technical-to-Business Translation\n• Value Proposition Design\n• Stakeholder Communication",
+        impact: "Successfully handled real-time Q&A on pricing, safety, and feasibility in a full English presentation",
       }
     ],
     skills: [
@@ -113,33 +113,33 @@ const content = {
     projects: [
       {
         title: "互動式 AI 履歷系統",
-        description: "使用 GPT 與結構化提示工程打造 AI 履歷系統。",
-        impact: "提升履歷品質並減少編輯時間",
+        description: "將原始經驗轉化為高品質履歷的 AI 系統。\n\n• 提示詞工程流程\n• 結構化輸出設計\n• 迭代回饋機制",
+        impact: "將履歷編輯時間降低約 80%，並提升不同情境下的內容一致性",
       },
       {
         title: "AI 職缺自動化系統",
-        description: "透過 n8n 與多個 API 建立自動化職缺篩選流程。",
-        impact: "將求職時間從 1 小時以上縮短至數分鐘",
+        description: "整合多來源資料，自動篩選與排序職缺的系統。\n\n• API 串接（職缺平台）\n• n8n 自動化流程\n• 規則篩選引擎",
+        impact: "將求職時間從 1 小時以上縮短至 5 分鐘內",
       },
       {
         title: "RAG 知識系統",
-        description: "使用 Gemini API 與 Streamlit 建構檢索增強生成系統。",
-        impact: "提升資訊查詢準確度與使用體驗",
+        description: "結合檢索與生成的知識查詢系統，提升準確性與上下文理解。\n\n• RAG 架構設計\n• 向量檢索機制\n• LLM 回應優化",
+        impact: "大幅提升複雜問題的回答準確度與使用體驗",
       },
       {
         title: "AI 智慧工廠監控系統",
-        description: "模擬智慧工廠資料蒐集、異常偵測與 AI 分析流程。",
-        impact: "展示預測維護與資料驅動決策能力",
+        description: "模擬智慧工廠即時監控與異常分析的 AI 系統。\n\n• 資料蒐集流程\n• 異常偵測邏輯\n• 預測分析層",
+        impact: "展示 AI 在預測維護與營運優化中的實際應用",
       },
       {
         title: "跨文化商業策略分析",
-        description: "運用 Hofstede 模型分析沙烏地阿拉伯商業文化並設計培訓方案。",
-        impact: "於 8 組中獲得第 1 名",
+        description: "運用文化模型設計可落地商業策略的分析系統。\n\n• Hofstede 模型分析\n• 市場行為建模\n• 策略轉譯",
+        impact: "於 8 組中獲得第 1 名，並提出具實務價值的策略建議",
       },
       {
         title: "技術產品市場定位",
-        description: "將電池技術轉化為市場語言並完成全英文商業簡報。",
-        impact: "即時應對定價、安全與技術問題",
+        description: "將複雜技術轉化為清晰市場定位的系統化方法。\n\n• 技術轉商業語言\n• 價值主張設計\n• 利害關係人溝通",
+        impact: "成功於全英文簡報中即時應對價格、安全與可行性問題",
       }
     ],
     skills: [
@@ -169,24 +169,54 @@ export default function Portfolio() {
   // --- NVIDIA-style interactive projects carousel state ---
   const [activeProject, setActiveProject] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [fade, setFade] = useState(true);
+  // Typing animation sequencing state
+  const [typingStage, setTypingStage] = useState("input");
   useEffect(() => {
     let start = Date.now();
-    const duration = 6000;
+    const duration = 9000;
 
-    const interval = setInterval(() => {
+    const tick = () => {
       const elapsed = Date.now() - start;
       const percent = Math.min((elapsed / duration) * 100, 100);
       setProgress(percent);
 
       if (elapsed >= duration) {
-        setActiveProject((prev) => (prev + 1) % content[lang].projects.length);
+        setFade(false);
+        setTimeout(() => {
+          setActiveProject((prev) => {
+            const next = (prev + 1) % content[lang].projects.length;
+            setTypingStage("input");
+            return next;
+          });
+          setFade(true);
+        }, 200);
+
         start = Date.now();
         setProgress(0);
       }
-    }, 50);
 
-    return () => clearInterval(interval);
-  }, [lang]);
+      requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+
+    return () => {};
+  }, [lang, activeProject]);
+
+  // Effect to switch typingStage from input to output for Resume GPT
+  useEffect(() => {
+    if (activeProject !== 0) return;
+
+    const inputText = "Who is Benjamin Tsao?";
+    const duration = inputText.length * 80; // ms per char for typing
+
+    const timer = setTimeout(() => {
+      setTypingStage("output");
+    }, duration + 500);
+
+    return () => clearTimeout(timer);
+  }, [activeProject]);
   // -------------------------------------------------------
   return (
     <div className="relative bg-[#050505] text-gray-100 min-h-screen selection:bg-white selection:text-black overflow-hidden z-10 font-sans">
@@ -250,16 +280,16 @@ export default function Portfolio() {
         <div className="absolute inset-0 pointer-events-none">
           {/* base grid lines */}
         <div
-          className="absolute inset-0 opacity-[0.35] animate-mesh-move"
+          className="absolute inset-0 opacity-[0.6] animate-mesh-move"
           style={{
             backgroundImage:
-              "linear-gradient(#444 1px, transparent 1px), linear-gradient(90deg, #444 1px, transparent 1px)",
+              "linear-gradient(#666 1px, transparent 1px), linear-gradient(90deg, #666 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         ></div>
           {/* subtle X pattern */}
         <svg
-          className="absolute inset-0 w-full h-full opacity-[0.4]"
+          className="absolute inset-0 w-full h-full opacity-[0.65]"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
@@ -271,10 +301,10 @@ export default function Portfolio() {
             >
               <path
                 d="M0 0 L100 100 M100 0 L0 100"
-                stroke="#444"
+                stroke="#666"
                 strokeWidth="1"
               />
-              <circle cx="50" cy="50" r="1.5" fill="#555" />
+              <circle cx="50" cy="50" r="1.5" fill="#777" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid-pattern)" />
@@ -298,7 +328,7 @@ export default function Portfolio() {
               </span>
 
               {/* line 2 */}
-              <span className="block text-gray-500 text-lg sm:text-xl md:text-3xl mt-2 whitespace-nowrap">
+              <span className="block text-gray-500 text-xl sm:text-2xl md:text-4xl mt-2 whitespace-nowrap">
                 for
               </span>
 
@@ -415,7 +445,7 @@ export default function Portfolio() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
           {/* LEFT: Main Feature */}
-          <div className="flex flex-col justify-center min-h-[260px] md:min-h-[300px]">
+          <div className={`flex flex-col justify-center min-h-[280px] md:min-h-[320px] space-y-6 transition-all duration-300 ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
             <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6 transition-all duration-500 min-h-[100px] md:min-h-[140px] whitespace-nowrap">
               {content[lang].projects[activeProject].title}
             </h2>
@@ -429,8 +459,85 @@ export default function Portfolio() {
             </button>
           </div>
 
-          {/* RIGHT: (empty placeholder for layout balance) */}
-          <div className="hidden md:block"></div>
+          {/* RIGHT: Visual System Display */}
+          <div className="hidden md:flex items-center justify-center">
+            <div className="w-full max-w-md h-[260px] relative flex items-center justify-center">
+
+          {/* Resume GPT animation */}
+          {activeProject === 0 && (
+            <div className="w-full h-full bg-[#0a0a0a] border border-white/10 p-6 flex flex-col justify-center">
+              <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                <span className="w-2 h-2 bg-[#76B900] rounded-full animate-pulse"></span>
+                OpenAI
+              </div>
+              <div className="text-xs text-gray-500 mb-2">INPUT</div>
+              <div
+                className={`inline-block text-sm text-gray-300 mb-4 font-mono overflow-hidden whitespace-nowrap border-r-2 border-[#76B900] pr-2 ${typingStage === "input" ? "animate-typing" : ""}`}
+                style={{
+                  animationDuration: `${"Who is Benjamin Tsao?".length * 0.08}s`,
+                  maxWidth: "fit-content"
+                }}
+              >
+                Who is Benjamin Tsao?
+              </div>
+
+              <div className="text-xs text-gray-500 mb-2">OUTPUT</div>
+              <div
+                className={`inline-block text-sm text-white font-mono overflow-hidden whitespace-nowrap border-r-2 border-[#76B900] pr-2 ${typingStage === "output" ? "animate-typing" : "opacity-0"}`}
+                style={{
+                  animationDuration: `3s`,
+                  maxWidth: "fit-content"
+                }}
+              >
+                Benjamin Tsao is a professional specializing in AI systems...
+              </div>
+            </div>
+          )}
+
+              {/* Job System animation */}
+              {activeProject === 1 && (
+                <div className="w-full h-full flex flex-col items-center justify-center text-sm gap-3">
+                  <div className="flex gap-2 text-gray-400">
+                    <span>[ LinkedIn ]</span>
+                    <span>[ Indeed ]</span>
+                    <span>[ API ]</span>
+                  </div>
+
+                  <div className="w-[2px] h-6 bg-gray-600"></div>
+
+                  <div className="text-[#76B900] relative">
+                    <span className="animate-pulse">Filter</span>
+                    <span className="absolute inset-0 blur-md opacity-50 bg-[#76B900]"></span>
+                  </div>
+
+                  <div className="w-[2px] h-6 bg-gray-600"></div>
+
+                  <div className="text-white">Top Jobs</div>
+                </div>
+              )}
+
+              {/* RAG animation */}
+              {activeProject === 2 && (
+                <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-sm">
+                  <div className="text-gray-400">User Query</div>
+
+                  <div className="w-[2px] h-6 bg-gray-600"></div>
+
+                  <div className="relative text-[#76B900]">
+                    <span className="animate-pulse">Vector DB</span>
+                    <span className="absolute inset-0 blur-lg opacity-40 bg-[#76B900]"></span>
+                  </div>
+
+                  <div className="text-xs text-gray-500">(Streamlit UI)</div>
+
+                  <div className="w-[2px] h-6 bg-gray-600"></div>
+
+                  <div className="text-white">LLM Response</div>
+                </div>
+              )}
+
+            </div>
+          </div>
         </div>
 
         {/* Bottom interactive NVIDIA-style tabs with progress bar */}
@@ -438,7 +545,14 @@ export default function Portfolio() {
           {content[lang].projects.map((project, index) => (
             <div
               key={index}
-              onClick={() => setActiveProject(index)}
+              onClick={() => {
+                setFade(false);
+                setTimeout(() => {
+                  setActiveProject(index);
+                  setProgress(0);
+                  setTypingStage("input");
+                }, 200);
+              }}
               className="flex-1 basis-0 min-w-0 cursor-pointer"
             >
               {/* progress bar */}
@@ -578,6 +692,14 @@ export default function Portfolio() {
     }
     .animate-pulse-slow {
       animation: pulse-slow 6s ease-in-out infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    .animate-typing {
+      display: inline-block;
+      animation: typing 2.5s steps(30, end) 1 normal both;
     }
     `}
     </style>
