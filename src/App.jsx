@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import resumeImg from "./assets/projects/ai-resume.jpg";
 import profileImg from "./assets/profile/profile.png";
+import openaiLogo from "./assets/icons/openai.png";
 /*import jobImg from "./assets/projects/job.png";
 import researchImg from "./assets/projects/research.png";*/
 
@@ -168,55 +169,59 @@ export default function Portfolio() {
   const [lang, setLang] = useState("en");
   // --- NVIDIA-style interactive projects carousel state ---
   const [activeProject, setActiveProject] = useState(0);
-  const [progress, setProgress] = useState(0);
   const [fade, setFade] = useState(true);
   // Typing animation sequencing state
   const [typingStage, setTypingStage] = useState("input");
+  // Progress animation cycle key
+  const [cycle, setCycle] = useState(0);
+
+  // Ref to track manual interaction with the carousel
+  const manualTriggerRef = useRef(false);
+
+  // --- TIMELINE CONSTANTS ---
+  const TIMELINE = {
+    TOTAL: 9000,
+    INPUT: "Who is Benjamin Tsao?".length * 80,
+    GAP: 500,
+  };
+
   useEffect(() => {
-    let start = Date.now();
-    const duration = 9000;
+    let timers = [];
 
-    const tick = () => {
-      const elapsed = Date.now() - start;
-      const percent = Math.min((elapsed / duration) * 100, 100);
-      setProgress(percent);
+    // Reset timeline state
+    setTypingStage("input");
+    // (REMOVED setCycle((c) => c + 1); // No longer increment here)
 
-      if (elapsed >= duration) {
-        setFade(false);
-        setTimeout(() => {
-          setActiveProject((prev) => {
-            const next = (prev + 1) % content[lang].projects.length;
-            setTypingStage("input");
-            return next;
-          });
-          setFade(true);
-        }, 200);
+    // INPUT → OUTPUT transition
+    if (activeProject === 0) {
+      const t1 = setTimeout(() => {
+        setTypingStage("output");
+      }, TIMELINE.INPUT + TIMELINE.GAP);
+      timers.push(t1);
+    }
 
-        start = Date.now();
-        setProgress(0);
-      }
+    // Project switch
+    const t2 = setTimeout(() => {
+      if (manualTriggerRef.current) return;
 
-      requestAnimationFrame(tick);
-    };
+      setFade(false);
+      const t3 = setTimeout(() => {
+        if (manualTriggerRef.current) return;
 
-    requestAnimationFrame(tick);
+        setActiveProject((prev) => {
+          const next = (prev + 1) % content[lang].projects.length;
+          setCycle((c) => c + 1);
+          return next;
+        });
+        setFade(true);
+      }, 200);
 
-    return () => {};
-  }, [lang, activeProject]);
+      timers.push(t3);
+    }, TIMELINE.TOTAL);
+    timers.push(t2);
 
-  // Effect to switch typingStage from input to output for Resume GPT
-  useEffect(() => {
-    if (activeProject !== 0) return;
-
-    const inputText = "Who is Benjamin Tsao?";
-    const duration = inputText.length * 80; // ms per char for typing
-
-    const timer = setTimeout(() => {
-      setTypingStage("output");
-    }, duration + 500);
-
-    return () => clearTimeout(timer);
-  }, [activeProject]);
+    return () => timers.forEach(clearTimeout);
+  }, [activeProject, lang, cycle]);
   // -------------------------------------------------------
   return (
     <div className="relative bg-[#050505] text-gray-100 min-h-screen selection:bg-white selection:text-black overflow-hidden z-10 font-sans">
@@ -461,20 +466,27 @@ export default function Portfolio() {
 
           {/* RIGHT: Visual System Display */}
           <div className="hidden md:flex items-center justify-center">
-            <div className="w-full max-w-md h-[260px] relative flex items-center justify-center">
+            <div
+              key={`${activeProject}-${cycle}`}
+              className="w-full max-w-md h-[260px] relative flex items-center justify-center"
+            >
 
           {/* Resume GPT animation */}
           {activeProject === 0 && (
             <div className="w-full h-full bg-[#0a0a0a] border border-white/10 p-6 flex flex-col justify-center">
               <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
-                <span className="w-2 h-2 bg-[#76B900] rounded-full animate-pulse"></span>
-                OpenAI
+                <img
+                  src={openaiLogo}
+                  alt="OpenAI"
+                  className="w-4 h-4 object-contain"
+                />
+                <span className="text-gray-400">OpenAI</span>
               </div>
               <div className="text-xs text-gray-500 mb-2">INPUT</div>
               <div
                 className={`inline-block text-sm text-gray-300 mb-4 font-mono overflow-hidden whitespace-nowrap border-r-2 border-[#76B900] pr-2 ${typingStage === "input" ? "animate-typing" : ""}`}
                 style={{
-                  animationDuration: `${"Who is Benjamin Tsao?".length * 0.08}s`,
+                  animationDuration: `${"Who is Benjamin Tsao?".length * 0.05}s`,
                   maxWidth: "fit-content"
                 }}
               >
@@ -485,11 +497,11 @@ export default function Portfolio() {
               <div
                 className={`inline-block text-sm text-white font-mono overflow-hidden whitespace-nowrap border-r-2 border-[#76B900] pr-2 ${typingStage === "output" ? "animate-typing" : "opacity-0"}`}
                 style={{
-                  animationDuration: `3s`,
+                  animationDuration: `1.8s`,
                   maxWidth: "fit-content"
                 }}
               >
-                Benjamin Tsao is a professional specializing in AI systems...
+                Benjamin Tsao is a professional majoring in ...
               </div>
             </div>
           )}
@@ -544,23 +556,38 @@ export default function Portfolio() {
         <div className="mt-16 flex gap-6 overflow-hidden">
           {content[lang].projects.map((project, index) => (
             <div
-              key={index}
               onClick={() => {
+                manualTriggerRef.current = true;
+
                 setFade(false);
                 setTimeout(() => {
                   setActiveProject(index);
-                  setProgress(0);
                   setTypingStage("input");
+                  setCycle((c) => c + 1);
+                  setFade(true);
+
+                  // allow auto-rotation again AFTER this cycle
+                  setTimeout(() => {
+                    manualTriggerRef.current = false;
+                  }, 50);
+
                 }, 200);
               }}
               className="flex-1 basis-0 min-w-0 cursor-pointer"
             >
               {/* progress bar */}
               <div className="h-[2px] w-full bg-gray-700 mb-3 relative overflow-hidden">
-                <div
-                  className="absolute top-0 left-0 h-full bg-[#76B900] transition-[width] duration-50"
-                  style={{ width: activeProject === index ? `${progress}%` : "0%" }}
-                ></div>
+                {activeProject === index ? (
+                  <div
+                    key={`${index}-${cycle}`}
+                    className="absolute top-0 left-0 h-full bg-[#76B900]"
+                    style={{
+                      animation: `progress-bar ${TIMELINE.TOTAL}ms linear forwards`
+                    }}
+                  ></div>
+                ) : (
+                  <div className="absolute top-0 left-0 h-full w-0"></div>
+                )}
               </div>
 
               <div className={`text-sm leading-snug transition whitespace-nowrap overflow-hidden text-ellipsis text-center ${activeProject === index ? "text-white" : "text-gray-400"}`}>
@@ -699,7 +726,11 @@ export default function Portfolio() {
     }
     .animate-typing {
       display: inline-block;
-      animation: typing 2.5s steps(30, end) 1 normal both;
+      animation: typing steps(30, end) 1 normal both;
+    }
+    @keyframes progress-bar {
+      from { width: 0% }
+      to { width: 100% }
     }
     `}
     </style>
