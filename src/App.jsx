@@ -41,15 +41,30 @@ const content = {
         impact: "Improved resume quality and reduced editing time",
       },
       {
-        title: "AI Job Matching Automation",
+        title: "AI Job Matching System",
         description: "Developed an automated job filtering pipeline using n8n and multiple APIs.",
         impact: "Reduced job search time from 1+ hour to under 5 minutes through automation",
       },
       {
-        title: "Cross-Cultural Business Research",
-        description: "Led a team analyzing Saudi Arabian business culture using the Hofstede framework to generate strategic insights.",
-        impact: "Delivered top-ranked analysis with actionable business insights",
+        title: "RAG Knowledge System",
+        description: "Built a Retrieval-Augmented Generation system using Gemini API and Streamlit for structured knowledge querying.",
+        impact: "Enhanced information retrieval accuracy and usability",
       },
+      {
+        title: "AI Factory Monitoring System",
+        description: "Simulated smart factory monitoring with automated data collection, anomaly detection, and AI analysis.",
+        impact: "Demonstrated predictive maintenance and data-driven operations capability",
+      },
+      {
+        title: "Cross-Cultural Business Strategy",
+        description: "Analyzed Saudi Arabian business culture using Hofstede framework and designed training strategies.",
+        impact: "Ranked #1 among 8 teams with actionable strategic insights",
+      },
+      {
+        title: "Technical Product Positioning",
+        description: "Translated complex battery technology into market positioning and delivered full English business presentation.",
+        impact: "Handled real-time Q&A on pricing, safety, and feasibility under pressure",
+      }
     ],
     skills: [
       "AI / Prompt Engineering",
@@ -97,20 +112,35 @@ const content = {
     },
     projects: [
       {
-        title: "互動式 AI 履歷",
-        description: "使用 GPT 設計並開發 AI 履歷機器人，透過結構化資訊和提示詞優化提升回應品質。",
-        impact: "提升履歷內容清晰度與使用體驗",
+        title: "互動式 AI 履歷系統",
+        description: "使用 GPT 與結構化提示工程打造 AI 履歷系統。",
+        impact: "提升履歷品質並減少編輯時間",
       },
       {
-        title: "AI 職缺自動篩選系統",
-        description: "結合 n8n 與多個 API 打造自動化職缺篩選流程。",
-        impact: "將求職時間從一小時縮短至數分鐘",
+        title: "AI 職缺自動化系統",
+        description: "透過 n8n 與多個 API 建立自動化職缺篩選流程。",
+        impact: "將求職時間從 1 小時以上縮短至數分鐘",
       },
       {
-        title: "跨文化商業研究",
-        description: "帶領團隊分析沙烏地阿拉伯商業文化（Hofstede 模型）。",
+        title: "RAG 知識系統",
+        description: "使用 Gemini API 與 Streamlit 建構檢索增強生成系統。",
+        impact: "提升資訊查詢準確度與使用體驗",
+      },
+      {
+        title: "AI 智慧工廠監控系統",
+        description: "模擬智慧工廠資料蒐集、異常偵測與 AI 分析流程。",
+        impact: "展示預測維護與資料驅動決策能力",
+      },
+      {
+        title: "跨文化商業策略分析",
+        description: "運用 Hofstede 模型分析沙烏地阿拉伯商業文化並設計培訓方案。",
         impact: "於 8 組中獲得第 1 名",
       },
+      {
+        title: "技術產品市場定位",
+        description: "將電池技術轉化為市場語言並完成全英文商業簡報。",
+        impact: "即時應對定價、安全與技術問題",
+      }
     ],
     skills: [
       "AI / 提示詞工程",
@@ -136,6 +166,28 @@ const content = {
 
 export default function Portfolio() {
   const [lang, setLang] = useState("en");
+  // --- NVIDIA-style interactive projects carousel state ---
+  const [activeProject, setActiveProject] = useState(0);
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    let start = Date.now();
+    const duration = 6000;
+
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - start;
+      const percent = Math.min((elapsed / duration) * 100, 100);
+      setProgress(percent);
+
+      if (elapsed >= duration) {
+        setActiveProject((prev) => (prev + 1) % content[lang].projects.length);
+        start = Date.now();
+        setProgress(0);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [lang]);
+  // -------------------------------------------------------
   return (
     <div className="relative bg-[#050505] text-gray-100 min-h-screen selection:bg-white selection:text-black overflow-hidden z-10 font-sans">
 
@@ -152,18 +204,25 @@ export default function Portfolio() {
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full backdrop-blur bg-[#050505]/70 border-b border-white/10 z-50">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex md:grid md:grid-cols-3 items-center">
+        <div className="max-w-5xl mx-auto px-4 md:px-6 py-3 md:py-4 flex md:grid md:grid-cols-3 items-center">
           {/* Left empty cell for balancing */}
           <div className="hidden md:block"></div>
           {/* Nav (mobile scroll / desktop centered) */}
           <div className="flex-1 overflow-x-auto md:overflow-visible whitespace-nowrap no-scrollbar flex justify-start md:justify-center">
-            <div className={`flex items-center ${lang === "en" ? "gap-3 md:gap-6 tracking-[0.12em]" : "gap-4 md:gap-8 tracking-[0.18em] uppercase"} text-xs md:text-sm text-[#76B900] font-semibold`}>
-              <a href="#about" className="relative text-[#76B900] hover:text-white transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#76B900] after:transition-all hover:after:w-full">{content[lang].nav.about}</a>
-              <a href="#projects" className="relative text-[#76B900] hover:text-white transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#76B900] after:transition-all hover:after:w-full">{content[lang].nav.work}</a>
-              <a href="#skills" className="relative text-[#76B900] hover:text-white transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#76B900] after:transition-all hover:after:w-full">{content[lang].nav.skills}</a>
-              <a href="#education" className="relative text-[#76B900] hover:text-white transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#76B900] after:transition-all hover:after:w-full">{content[lang].nav.education}</a>
-              <a href="#certification" className="relative text-[#76B900] hover:text-white transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#76B900] after:transition-all hover:after:w-full">{content[lang].nav.certification}</a>
-              <a href="#contact" className="relative text-[#76B900] hover:text-white transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#76B900] after:transition-all hover:after:w-full">{content[lang].nav.contact}</a>
+            <div className={`flex items-center ${lang === "en" ? "gap-2 md:gap-4 tracking-[0.08em]" : "gap-3 md:gap-6 tracking-[0.12em] uppercase"} text-xs md:text-sm text-[#76B900] font-semibold`}>
+              {["about", "projects", "skills", "education", "certification", "contact"].map((item, index, arr) => (
+                <React.Fragment key={item}>
+                  <a
+                    href={`#${item}`}
+                    className="relative text-[#76B900] hover:text-white transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#76B900] after:transition-all hover:after:w-full"
+                  >
+                    {content[lang].nav[item === "projects" ? "work" : item]}
+                  </a>
+                  {index !== arr.length - 1 && (
+                    <span className="text-gray-700/70 px-1.5 select-none">|</span>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
           </div>
           <div className="flex items-center justify-end text-xs md:text-sm tracking-[0.18em] uppercase font-semibold">
@@ -173,7 +232,7 @@ export default function Portfolio() {
             >
               EN
             </button>
-            <span className="text-gray-600 mx-1">|</span>
+            <span className="text-gray-700/70 mx-1 select-none">|</span>
             <button
               onClick={() => setLang("zh")}
               className={`px-2 flex items-center transition ${lang === "zh" ? "text-[#76B900]" : "text-gray-500 hover:text-white"}`}
@@ -347,50 +406,52 @@ export default function Portfolio() {
       {/* Section separation is now handled by background color alternation */}
 
       {/* Projects */}
-      <section id="projects" className="px-4 md:px-6 py-32 md:py-40 max-w-5xl mx-auto bg-[#050505]">
-        <h2 className="text-3xl font-semibold tracking-tight text-white mb-20 text-center">
-          {content[lang].nav.work}
-        </h2>
+      <section id="projects" className="px-4 md:px-6 py-32 md:py-40 max-w-6xl mx-auto bg-[#050505]">
+        <div className="mb-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-wide">
+            {content[lang].nav.work}
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
-        <div key={lang} className="space-y-16">
+          {/* LEFT: Main Feature */}
+          <div className="flex flex-col justify-center min-h-[260px] md:min-h-[300px]">
+            <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6 transition-all duration-500 min-h-[100px] md:min-h-[140px] whitespace-nowrap">
+              {content[lang].projects[activeProject].title}
+            </h2>
+
+            <p className="text-gray-400 leading-relaxed mb-6 transition-all duration-500 min-h-[80px] md:min-h-[100px]">
+              {content[lang].projects[activeProject].description}
+            </p>
+
+            <button className="inline-flex items-center justify-center bg-[#76B900] text-black font-medium text-sm px-4 py-2 w-fit hover:brightness-110 transition">
+              {lang === "zh" ? "深入瞭解" : "Learn More"}
+            </button>
+          </div>
+
+          {/* RIGHT: (empty placeholder for layout balance) */}
+          <div className="hidden md:block"></div>
+        </div>
+
+        {/* Bottom interactive NVIDIA-style tabs with progress bar */}
+        <div className="mt-16 flex gap-6 overflow-hidden">
           {content[lang].projects.map((project, index) => (
-            <div key={index} className="group max-w-3xl mx-auto rounded-xl overflow-hidden bg-white/5 backdrop-blur border border-white/10 hover:shadow-lg transition duration-300 md:flex">
-
-              {/* Image */}
-              <div className="w-full md:w-[45%] aspect-[16/9] bg-gray-200 overflow-hidden md:rounded-l-xl md:rounded-t-none flex-shrink-0">
-                <img
-                  src={index === 0 ? resumeImg : `https://placehold.co/800x400?text=Project+${index + 1}`}
-                  alt="project preview"
-                  className="w-full h-full object-cover group-hover:scale-[1.01] transition duration-500 will-change-transform"
-                />
+            <div
+              key={index}
+              onClick={() => setActiveProject(index)}
+              className="flex-1 basis-0 min-w-0 cursor-pointer"
+            >
+              {/* progress bar */}
+              <div className="h-[2px] w-full bg-gray-700 mb-3 relative overflow-hidden">
+                <div
+                  className="absolute top-0 left-0 h-full bg-[#76B900] transition-[width] duration-50"
+                  style={{ width: activeProject === index ? `${progress}%` : "0%" }}
+                ></div>
               </div>
 
-              {/* Content */}
-              <div className="p-5 md:p-6 text-left md:w-[55%] flex flex-col justify-center">
-                <h3 className="text-2xl font-semibold mb-3 bg-gradient-to-r from-white to-[#7c8395] bg-clip-text text-transparent">
-                  {project.title}
-                </h3>
-
-                <p className="text-gray-400 leading-relaxed mb-3">
-                  {project.description}
-                </p>
-
-                <p className="text-sm text-[#9ca3af] italic">
-                  → {project.impact}
-                </p>
-
-                {(project.title === "AI Resume GPT" || project.title === "互動式 AI 履歷") && (
-                  <a
-                    href="https://chatgpt.com/g/g-69c026be51708191bda8b44b38665238-benjamin-tsao-s-ai-agent"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-4 text-sm text-[#7c8395] hover:underline"
-                  >
-                    {content[lang].try}
-                  </a>
-                )}
+              <div className={`text-sm leading-snug transition whitespace-nowrap overflow-hidden text-ellipsis text-center ${activeProject === index ? "text-white" : "text-gray-400"}`}>
+                {project.title}
               </div>
-
             </div>
           ))}
         </div>
