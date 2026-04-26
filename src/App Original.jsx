@@ -1,0 +1,396 @@
+import React, { useEffect } from "react";
+import { useState } from "react";
+import resumeImg from "./assets/projects/ai-resume.jpg";
+/*import jobImg from "./assets/projects/job.png";
+import researchImg from "./assets/projects/research.png";*/
+
+const content = {
+  en: {
+    nav: {
+      about: "About",
+      work: "Selected Projects",
+      skills: "Skills",
+      education: "Education",
+      certification: "Certification",
+      contact: "Contact",
+    },
+    hero: "I build AI systems that solve real business problems.",
+    about1:
+      "With a background in computer science and international business, I build AI and automation solutions that solve real-world problems.",
+    about2:
+      "I combine technical execution with business thinking to create systems that are not only built — but actually used.",
+    try: "Try the live AI system →",
+    education: {
+      title: "Education",
+      ncuName: "National Central University",
+      itiName: "International Trade Institute, TAITRA",
+      ncuProgram:
+        "Interdisciplinary Program of Electrical Engineering and Computer Science",
+      ncuDegree: "B.S. in Computer Science and Network Engineering",
+      itiProgram: "One-year International Business Administration Program",
+      ncuDesc:
+        "Focused on software engineering, networking systems, and AI-related applications.",
+      itiDesc:
+        "Intensive training in global business communication, trade practices, and cross-cultural negotiation.",
+    },
+    projects: [
+      {
+        title: "AI Resume GPT",
+        description: "Built an AI-powered resume system using GPT with structured prompt engineering.",
+        impact: "Improved resume quality and reduced editing time",
+      },
+      {
+        title: "AI Job Matching Automation",
+        description: "Developed an automated job filtering pipeline using n8n and multiple APIs.",
+        impact: "Reduced job search time from 1+ hour to under 5 minutes through automation",
+      },
+      {
+        title: "Cross-Cultural Business Research",
+        description: "Led a team analyzing Saudi Arabian business culture using the Hofstede framework to generate strategic insights.",
+        impact: "Delivered top-ranked analysis with actionable business insights",
+      },
+    ],
+    skills: [
+      "AI / Prompt Engineering",
+      "Automation (n8n)",
+      "Project Management",
+      "Business Analysis",
+      "Cross-functional Collaboration",
+    ],
+    contact: {
+      title: "Let’s Work Together",
+      desc: "Open to opportunities in AI, product, and international business.",
+      button: "Contact Me",
+    },
+    certification: [
+      "AI Application Planner Certification (Ministry of Economic Affairs, Taiwan)",
+      "Google Agile Project Management",
+      "NVIDIA DLI – Building LLM Applications with Prompt Engineering",
+      "NVIDIA DLI – Building RAG Applications with LLM",
+    ],
+  },
+  zh: {
+    nav: {
+      about: "關於我",
+      work: "作品",
+      skills: "技能",
+      education: "學歷",
+      certification: "證照",
+      contact: "聯絡",
+    },
+    hero: "將 AI 轉化為實際商業價值",
+    about1:
+      "具備資訊工程與國際商務背景，我專注於利用 AI 與自動化解決真實世界問題。",
+    about2:
+      "擅長結合技術執行與策略思維，將想法落地為可運作的系統。",
+    try: "立即體驗 AI 系統 →",
+    education: {
+      title: "學歷",
+      ncuName: "國立中央大學",
+      itiName: "ITI 外貿協會培訓中心國際企業經營班",
+      ncuProgram: "資訊電機學院學士班",
+      ncuDegree: "資訊工程與網路工程學士",
+      itiProgram: "一年期商務英語組",
+      ncuDesc: "專注於軟體工程、網路系統與 AI 應用。",
+      itiDesc: "全英文國際商務、貿易實務與跨文化溝通訓練。",
+    },
+    projects: [
+      {
+        title: "互動式 AI 履歷",
+        description: "使用 GPT 設計並開發 AI 履歷機器人，透過結構化資訊和提示詞優化提升回應品質。",
+        impact: "提升履歷內容清晰度與使用體驗",
+      },
+      {
+        title: "AI 職缺自動篩選系統",
+        description: "結合 n8n 與多個 API 打造自動化職缺篩選流程。",
+        impact: "將求職時間從一小時縮短至數分鐘",
+      },
+      {
+        title: "跨文化商業研究",
+        description: "帶領團隊分析沙烏地阿拉伯商業文化（Hofstede 模型）。",
+        impact: "於 8 組中獲得第 1 名",
+      },
+    ],
+    skills: [
+      "AI / 提示詞工程",
+      "自動化（n8n）",
+      "專案管理",
+      "商業分析",
+      "跨部門協作",
+    ],
+    contact: {
+      title: "一起合作",
+      desc: "開放 AI、產品與國際商業相關機會",
+      button: "聯絡我",
+    },
+    certification: [
+      "經濟部 AI 應用規劃師",
+      "Google 敏捷專案管理",
+      "NVIDIA DLI – 使用提示詞打造 LLM 應用服務",
+      "NVIDIA DLI – 使用 LLM 打造 RAG 應用服務",
+    ],
+  },
+};
+
+
+export default function Portfolio() {
+  const [lang, setLang] = useState("en");
+  return (
+    <div className="relative bg-[#f5f4f1] text-gray-900 min-h-screen selection:bg-black selection:text-white overflow-hidden z-10 font-sans">
+
+      {/* Subtle animated background */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <div
+          className="absolute w-[500px] h-[500px] bg-[#c4b5fd]/50 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite] top-[-100px] left-[-100px]"
+        ></div>
+        <div
+          className="absolute w-[400px] h-[400px] bg-[#a5b4fc]/50 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite] bottom-[-100px] right-[-100px]"
+        ></div>
+      </div>
+
+
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 w-full backdrop-blur bg-[#f7f6f3]/70 border-b border-gray-200 z-50">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex md:grid md:grid-cols-3 items-center">
+          {/* Left empty cell for balancing */}
+          <div className="hidden md:block"></div>
+          {/* Nav (mobile scroll / desktop centered) */}
+          <div className="flex-1 overflow-x-auto md:overflow-visible whitespace-nowrap no-scrollbar flex justify-start md:justify-center">
+            <div className="flex items-center gap-4 md:gap-8 text-sm text-gray-600">
+              <a href="#about" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.about}</a>
+              <a href="#projects" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.work}</a>
+              <a href="#skills" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.skills}</a>
+              <a href="#education" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.education}</a>
+              <a href="#certification" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.certification}</a>
+              <a href="#contact" className="relative hover:text-gray-900 transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-gray-900 after:transition-all hover:after:w-full">{content[lang].nav.contact}</a>
+            </div>
+          </div>
+          <div className="flex items-center justify-end text-sm">
+            <button
+              onClick={() => setLang("en")}
+              className={`px-2 flex items-center ${lang === "en" ? "text-gray-900 font-medium" : "text-gray-400"}`}
+            >
+              EN
+            </button>
+            <span className="text-gray-300">|</span>
+            <button
+              onClick={() => setLang("zh")}
+              className={`px-2 flex items-center ${lang === "zh" ? "text-gray-900 font-medium" : "text-gray-400"}`}
+            >
+              中
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section className="px-4 md:px-6 pt-48 md:pt-56 pb-20 md:pb-28 max-w-5xl mx-auto">
+        <div className="text-center">
+          <p className="text-[11px] text-gray-400 mb-8 tracking-[0.25em] uppercase">
+            Portfolio
+          </p>
+
+          <h1 className="text-5xl sm:text-6xl md:text-[92px] font-semibold tracking-tight leading-[1.02] mb-10">
+            Benjamin{" "}
+            <span className="relative inline-block group">
+              <span className="relative z-10">Tsao</span>
+              <span className="absolute left-0 bottom-2 w-full h-3 bg-gradient-to-r from-[#d6d3ff] to-[#c7d2fe] rounded-sm -z-0 opacity-80 transition-all duration-300 group-hover:h-4"></span>
+            </span>
+          </h1>
+
+          <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed text-gray-500">
+            <span className="text-gray-600">{content[lang].hero}</span>
+          </p>
+
+          <div className="mt-4 flex justify-center">
+            <span className="text-xs px-3 py-1 rounded-full bg-[#e8e7e3] text-gray-600">
+              AI × Business × Automation
+            </span>
+          </div>
+
+          <div className="mt-8 flex justify-center gap-4">
+            <a href="#projects" className="px-6 py-2 rounded-full bg-[#7c8395] text-white text-sm hover:bg-[#6b7280] transition duration-300">
+              View Work
+            </a>
+            <a href="#contact" className="px-6 py-2 rounded-full border border-gray-300 text-sm text-gray-700 hover:bg-gray-100 transition duration-300">
+              Contact
+            </a>
+          </div>
+        </div>
+
+        {/* Section separation is now handled by background color alternation */}
+      </section>
+
+      {/* About */}
+      <section id="about" className="px-4 md:px-6 pt-16 pb-24 bg-[#eeede8]">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-6">{content[lang].nav.about}</h2>
+          <p className="text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            {content[lang].about1}
+          </p>
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+            {content[lang].about2}
+          </p>
+        </div>
+      </section>
+      {/* Section separation is now handled by background color alternation */}
+
+      {/* Projects */}
+      <section id="projects" className="px-4 md:px-6 py-32 md:py-40 max-w-5xl mx-auto bg-[#f5f4f1]">
+        <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-20 text-center">
+          {content[lang].nav.work}
+        </h2>
+
+        <div key={lang} className="space-y-16">
+          {content[lang].projects.map((project, index) => (
+            <div key={index} className="group max-w-3xl mx-auto rounded-xl overflow-hidden bg-white/60 backdrop-blur border border-gray-100 hover:shadow-lg transition duration-300 md:flex">
+
+              {/* Image */}
+              <div className="w-full md:w-[45%] aspect-[16/9] bg-gray-200 overflow-hidden md:rounded-l-xl md:rounded-t-none flex-shrink-0">
+                <img
+                  src={index === 0 ? resumeImg : `https://placehold.co/800x400?text=Project+${index + 1}`}
+                  alt="project preview"
+                  className="w-full h-full object-cover group-hover:scale-[1.01] transition duration-500 will-change-transform"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="p-5 md:p-6 text-left md:w-[55%] flex flex-col justify-center">
+                <h3 className="text-2xl font-semibold mb-3 bg-gradient-to-r from-gray-900 to-[#7c8395] bg-clip-text text-transparent">
+                  {project.title}
+                </h3>
+
+                <p className="text-gray-600 leading-relaxed mb-3">
+                  {project.description}
+                </p>
+
+                <p className="text-sm text-[#9ca3af] italic">
+                  → {project.impact}
+                </p>
+
+                {(project.title === "AI Resume GPT" || project.title === "互動式 AI 履歷") && (
+                  <a
+                    href="https://chatgpt.com/g/g-69c026be51708191bda8b44b38665238-benjamin-tsao-s-ai-agent"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-4 text-sm text-[#7c8395] hover:underline"
+                  >
+                    {content[lang].try}
+                  </a>
+                )}
+              </div>
+
+            </div>
+          ))}
+        </div>
+      </section>
+      {/* Section separation is now handled by background color alternation */}
+
+      {/* Skills */}
+      <section id="skills" className="w-full bg-[#eeede8]">
+        <div className="px-4 md:px-6 py-32 md:py-40 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
+            {content[lang].nav.skills}
+          </h2>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            {content[lang].skills.map((skill) => (
+              <span
+                key={skill}
+                className="px-6 py-2 bg-gray-100 rounded-full text-sm hover:bg-[#7c8395] hover:text-white hover:-translate-y-[1px] transition duration-300"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Section separation is now handled by background color alternation */}
+
+      {/* Education */}
+      <section id="education" className="px-4 md:px-6 py-32 md:py-40 max-w-4xl mx-auto bg-[#f5f4f1]">
+        <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
+          {content[lang].education.title}
+        </h2>
+
+        <div key={lang} className="space-y-10 max-w-3xl mx-auto">
+          <div className="p-6 rounded-xl bg-white border border-gray-100">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+              <span className="text-sm text-gray-400 order-1 sm:order-2 sm:text-right">2019 — 2024</span>
+              <div className="order-2 sm:order-1">
+                <h3 className="text-lg font-medium text-gray-900">
+                  {content[lang].education.ncuName}
+                </h3>
+                <p className="text-sm text-gray-500 mt-1">
+                  {content[lang].education.ncuProgram}<br/>
+                  {content[lang].education.ncuDegree}
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-600 text-sm mt-3">
+              {content[lang].education.ncuDesc}
+            </p>
+          </div>
+
+          <div className="p-6 rounded-xl bg-white border border-gray-100">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+              <span className="text-sm text-gray-400 order-1 sm:order-2 sm:text-right">2025 — 2026</span>
+              <div className="order-2 sm:order-1">
+                <h3 className="text-lg font-medium text-gray-900">
+                  {content[lang].education.itiName}
+                </h3>
+                <p className="text-sm text-gray-500 mt-1">
+                  {content[lang].education.itiProgram}
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-600 text-sm mt-3">
+              {content[lang].education.itiDesc}
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* Section separation is now handled by background color alternation */}
+
+      {/* Certification */}
+      <section id="certification" className="w-full bg-[#eeede8]">
+        <div className="px-4 md:px-6 py-32 md:py-40 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
+            {content[lang].nav.certification}
+          </h2>
+
+          <div className="space-y-8 max-w-3xl mx-auto">
+            {content[lang].certification.map((item) => (
+              <div key={item} className="group p-5 rounded-xl bg-white/60 backdrop-blur border border-gray-100 hover:shadow-lg transition-shadow duration-200 md:hover:scale-[1.005]">
+                <h3 className="text-md font-medium text-gray-900">
+                  {item}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Section separation is now handled by background color alternation */}
+
+      {/* Contact */}
+      <section id="contact" className="px-4 md:px-6 py-40 text-center bg-[#f5f4f1]">
+        <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-4">{content[lang].contact.title}</h2>
+        <p className="text-gray-600 mb-8">
+          {content[lang].contact.desc}
+        </p>
+
+        <a
+          href="mailto:benjamintsao2000@gmail.com"
+          className="inline-block px-10 py-4 bg-[#7c8395] text-white rounded-full hover:bg-[#6b7280] transition duration-300"
+        >
+          {content[lang].contact.button}
+        </a>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center py-10 text-sm text-gray-500">
+        © {new Date().getFullYear()} Benjamin Tsao
+      </footer>
+    </div>
+  );
+}
