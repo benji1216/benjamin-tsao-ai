@@ -225,27 +225,38 @@ export default function Portfolio() {
           {/* soft brand glow (removed for more natural look) */}
         </div>
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="relative z-10 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 items-center">
 
           {/* Left */}
-          <div className="flex flex-col justify-center items-start space-y-4 text-white h-full">
+          <div className="flex flex-col justify-center items-start space-y-3 md:space-y-4 text-white h-full">
             <div className="text-white text-base md:text-lg font-light tracking-[0.02em] leading-none">
               Benjamin Tsao
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight max-w-xl">
-              Building <span className="text-[#76B900]">AI Systems</span><br />
-              <span className="text-gray-500">for</span><br />
-              <span className="whitespace-nowrap">Real Business Impact</span>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight max-w-full">
+              {/* line 1 */}
+              <span className="block whitespace-nowrap">
+                Building <span className="text-[#76B900]">AI Systems</span>
+              </span>
+
+              {/* line 2 */}
+              <span className="block text-gray-500 text-lg sm:text-xl md:text-3xl mt-2 whitespace-nowrap">
+                for
+              </span>
+
+              {/* line 3 */}
+              <span className="block whitespace-nowrap mt-1">
+                Real Business Impact
+              </span>
             </h1>
 
             <p className="text-white max-w-md leading-relaxed border-l-2 border-[#76B900] pl-4">
               {content[lang].hero}
             </p>
 
-            <div className="flex gap-4 pt-2">
+            <div className="flex gap-3 pt-3">
               <a
                 href="#projects"
-                className="group relative px-6 py-2 bg-[#76B900] text-black text-sm font-semibold overflow-hidden transition-all hover:bg-white hover:pr-10"
+                className="group relative px-6 py-2 bg-[#76B900] text-black text-sm font-semibold overflow-hidden transition-all hover:brightness-110 hover:pr-10"
               >
                 <span className="relative z-10">View Work</span>
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all">
@@ -267,7 +278,7 @@ export default function Portfolio() {
           {/* Right */}
           <div className="relative flex justify-center md:justify-end items-center md:pr-2 h-full">
             {/* Upgraded NVIDIA-style polygon frame profile image */}
-            <div className="relative group w-full max-w-[380px] aspect-square cursor-pointer">
+            <div className="relative group w-full max-w-[300px] md:max-w-[380px] aspect-[4/5] md:aspect-square cursor-pointer">
 
               {/* hover glow (tied to shape) */}
               <div
