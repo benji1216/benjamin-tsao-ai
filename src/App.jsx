@@ -37,34 +37,35 @@ const content = {
     },
     projects: [
       {
-        title: "AI Resume GPT",
-        description: "An AI-powered system that transforms raw experience into structured, high-quality resumes.\n\n• Prompt Engineering Pipeline\n• Structured Output Design\n• Iterative Feedback Loop",
-        impact: "Reduced resume editing time by ~80% and improved consistency across different job applications",
+        title: "Personal Resume GPT",
+        description: "A custom GPT that lets HRs and visitors explore my resume, bio, and project notes through conversation.\n\n• Custom GPT Configuration\n• System Instruction Design\n• Profile Knowledge Curation",
+        impact: "Made career materials easier to explore through an interactive profile assistant",
       },
       {
         title: "AI Job Matching System",
-        description: "An automated system that filters and prioritizes job opportunities using multi-source data pipelines.\n\n• API Integration (job platforms)\n• n8n Automation Workflow\n• Rule-based Filtering Engine",
-        impact: "Reduced job search time from 1+ hour to under 5 minutes through full automation",
+        description: "An n8n workflow that finds jobs, filters fit, and sends prioritized opportunities through LINE.\n\n• API Integration (job platforms)\n• n8n Automation Workflow\n• Rule-based Filtering Engine",
+        impact: "Reduced manual job searching from over an hour to under five minutes",
       },
       {
-        title: "RAG Knowledge System",
-        description: "A retrieval-augmented system for structured knowledge querying with improved accuracy and context relevance.\n\n• RAG Architecture Design\n• Vector-based Retrieval\n• LLM Response Optimization",
-        impact: "Significantly improved answer accuracy and usability for complex information queries",
+        title: "ITCE AI Mentor",
+        description: "A Streamlit RAG assistant that turns official ITCE question banks into concept learning and guided practice.\n\n• Topic-aware Retrieval\n• Follow-up Query Handling\n• Streamlit Learning Interface",
+        impact: "Converted static exam PDFs into searchable, interactive learning workflows",
       },
       {
         title: "AI Factory Monitoring System",
-        description: "A simulated smart factory system for real-time monitoring, anomaly detection, and AI-driven insights.\n\n• Data Collection Pipeline\n• Anomaly Detection Logic\n• Predictive Analysis Layer",
-        impact: "Demonstrated practical use of AI in predictive maintenance and operational efficiency",
+        description: "An n8n monitoring loop that reads recent machine records and writes AI diagnoses back to Sheets.\n\n• n8n Automation Workflow\n• Google Sheets Data Hub\n• AI Diagnosis Writeback",
+        impact: "Built a full loop from telemetry simulation to AI diagnosis and sheet writeback",
       },
       {
         title: "Cross-Cultural Business Strategy",
-        description: "A strategic analysis system applying cultural frameworks to design actionable business strategies.\n\n• Hofstede Framework Analysis\n• Market Behavior Modeling\n• Strategy Translation",
-        impact: "Ranked #1 among 8 teams with clear, actionable insights for real-world business scenarios",
+        singleLineTitle: true,
+        description: "A strategy project using cultural frameworks to explain market behavior and guide business decisions.\n\n• Hofstede Framework Analysis\n• Market Behavior Modeling\n• Strategy Translation",
+        impact: "Ranked first among eight teams with practical strategy recommendations",
       },
       {
         title: "Technical Product Positioning",
-        description: "A system-level approach to translating complex technology into clear market positioning and communication.\n\n• Technical-to-Business Translation\n• Value Proposition Design\n• Stakeholder Communication",
-        impact: "Successfully handled real-time Q&A on pricing, safety, and feasibility in a full English presentation",
+        description: "A product-positioning project that turns technical details into business value and stakeholder messaging.\n\n• Technical-to-Business Translation\n• Value Proposition Design\n• Stakeholder Communication",
+        impact: "Handled live English Q&A on pricing, safety, and feasibility with confidence",
       }
     ],
     skills: [
@@ -113,34 +114,34 @@ const content = {
     },
     projects: [
       {
-        title: "互動式 AI 履歷系統",
-        description: "將原始經驗轉化為高品質履歷的 AI 系統。\n\n• 提示詞工程流程\n• 結構化輸出設計\n• 迭代回饋機制",
-        impact: "將履歷編輯時間降低約 80%，並提升不同情境下的內容一致性",
+        title: "互動式 AI 履歷助理",
+        description: "以我的個人資料建立的客製化 GPT，讓訪客用問答了解我的背景。\n\n• Custom GPT 設定\n• System Instruction 設計\n• 個人資料知識整理",
+        impact: "把靜態個人資料轉成可互動探索的介紹助理",
       },
       {
         title: "AI 職缺自動化系統",
-        description: "整合多來源資料，自動篩選與排序職缺的系統。\n\n• API 串接（職缺平台）\n• n8n 自動化流程\n• 規則篩選引擎",
-        impact: "將求職時間從 1 小時以上縮短至 5 分鐘內",
+        description: "以 n8n 串接職缺資料，自動篩選適合機會並推播到 LINE。\n\n• API 串接（職缺平台）\n• n8n 自動化流程\n• 規則篩選引擎",
+        impact: "將手動找職缺時間從一小時以上降到五分鐘內",
       },
       {
-        title: "RAG 知識系統",
-        description: "結合檢索與生成的知識查詢系統，提升準確性與上下文理解。\n\n• RAG 架構設計\n• 向量檢索機制\n• LLM 回應優化",
-        impact: "大幅提升複雜問題的回答準確度與使用體驗",
+        title: "國貿大會考智慧助教",
+        description: "以 Streamlit 與 RAG 將官方題庫轉成觀念學習與解題練習助教。\n\n• 主題導向檢索\n• 追問脈絡理解\n• Streamlit 互動式學習介面",
+        impact: "把靜態 PDF 題庫轉成可檢索、可互動的學習流程",
       },
       {
         title: "AI 智慧工廠監控系統",
-        description: "模擬智慧工廠即時監控與異常分析的 AI 系統。\n\n• 資料蒐集流程\n• 異常偵測邏輯\n• 預測分析層",
-        impact: "展示 AI 在預測維護與營運優化中的實際應用",
+        description: "以 n8n 讀取近筆機台資料，讓 OpenAI 判斷狀態並回寫 Google Sheet。\n\n• n8n 自動化流程\n• Google Sheet 資料中樞\n• AI 判斷結果回寫",
+        impact: "建立從模擬資料到 AI 診斷與表格回寫的完整流程",
       },
       {
         title: "跨文化商業策略分析",
-        description: "運用文化模型設計可落地商業策略的分析系統。\n\n• Hofstede 模型分析\n• 市場行為建模\n• 策略轉譯",
-        impact: "於 8 組中獲得第 1 名，並提出具實務價值的策略建議",
+        description: "運用文化模型解釋市場行為，並轉化為可執行商業策略。\n\n• Hofstede 模型分析\n• 市場行為建模\n• 策略轉譯",
+        impact: "於八組中獲得第一名，提出具實務價值的策略",
       },
       {
         title: "技術產品市場定位",
-        description: "將複雜技術轉化為清晰市場定位的系統化方法。\n\n• 技術轉商業語言\n• 價值主張設計\n• 利害關係人溝通",
-        impact: "成功於全英文簡報中即時應對價格、安全與可行性問題",
+        description: "將複雜技術轉成清楚的產品價值、定位與利害關係人溝通。\n\n• 技術轉商業語言\n• 價值主張設計\n• 利害關係人溝通",
+        impact: "在全英文簡報中完成價格、安全與可行性問答",
       }
     ],
     skills: [
@@ -222,6 +223,16 @@ export default function Portfolio() {
 
     return () => timers.forEach(clearTimeout);
   }, [activeProject, lang, cycle]);
+
+  const activeProjectData = content[lang].projects[activeProject];
+  const [projectSummary, projectBulletBlock = ""] = activeProjectData.description.split("\n\n");
+  const projectBullets = projectBulletBlock
+    .split("\n")
+    .map((item) => item.replace(/^•\s*/, "").trim())
+    .filter(Boolean);
+  const featureLabel = lang === "zh" ? "精選專案" : "Featured Project";
+  const impactLabel = lang === "zh" ? "成果" : "Impact";
+  const forceSingleLineTitle = activeProjectData.singleLineTitle && lang === "en";
   // -------------------------------------------------------
   return (
     <div className="relative bg-[#050505] text-gray-100 min-h-screen selection:bg-white selection:text-black overflow-hidden z-10 font-sans">
@@ -428,123 +439,492 @@ export default function Portfolio() {
 
       {/* About */}
       <section id="about" className="px-4 md:px-6 pt-20 pb-28 bg-[#0a0a0a]">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-white mb-6">{content[lang].nav.about}</h2>
-          <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            {content[lang].about1}
-          </p>
-          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-            {content[lang].about2}
-          </p>
+        <div className="max-w-[1040px] mx-auto grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-start">
+          <div>
+            <div className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#76B900]">
+              <span className="h-px w-8 bg-[#76B900]"></span>
+              <span>{content[lang].nav.about}</span>
+            </div>
+            <h2 className="max-w-md text-3xl md:text-[38px] font-semibold leading-tight tracking-tight text-white">
+              {lang === "zh"
+                ? "把 AI 技術轉化為能被實際使用的系統。"
+                : "Turning AI ideas into systems people can actually use."}
+            </h2>
+          </div>
+
+          <div className="space-y-7">
+            <div className="space-y-4 border-l border-white/10 pl-6">
+              <p className="text-base leading-relaxed text-gray-300 md:text-[17px]">
+                {content[lang].about1}
+              </p>
+              <p className="text-sm leading-relaxed text-gray-500 md:text-[15px]">
+                {content[lang].about2}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {(lang === "zh"
+                ? [
+                    ["Technical", "AI 系統實作與自動化流程"],
+                    ["Business", "國際商務與產品溝通"],
+                    ["Execution", "從需求到可展示成果"],
+                  ]
+                : [
+                    ["Technical", "AI systems and automation workflows"],
+                    ["Business", "International business and product communication"],
+                    ["Execution", "From requirements to working demos"],
+                  ]).map(([title, desc]) => (
+                <div key={title} className="border border-white/10 bg-white/[0.035] px-4 py-4">
+                  <div className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#76B900]">
+                    {title}
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-400">
+                    {desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       {/* Section separation is now handled by background color alternation */}
 
       {/* Projects */}
-      <section id="projects" className="px-4 md:px-6 py-32 md:py-40 max-w-6xl mx-auto bg-[#050505]">
+      <section id="projects" className="px-4 md:px-6 py-32 md:py-40 max-w-[1180px] mx-auto bg-[#050505]">
         <div className="mb-12 text-center">
           <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-wide">
             {content[lang].nav.work}
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,470px)_minmax(0,540px)] justify-center gap-8 md:gap-8 items-center">
 
           {/* LEFT: Main Feature */}
-          <div className={`flex flex-col justify-center min-h-[280px] md:min-h-[320px] space-y-6 transition-all duration-300 ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
-            <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6 transition-all duration-500 min-h-[100px] md:min-h-[140px] whitespace-nowrap">
-              {content[lang].projects[activeProject].title}
-            </h2>
+          <div className={`flex flex-col justify-center md:items-end transition-all duration-300 md:h-[450px] ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
+            <div className="flex h-[360px] w-full max-w-[470px] flex-col justify-center gap-5">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#76B900]">
+                  <span className="h-px w-8 bg-[#76B900]"></span>
+                  <span>{featureLabel}</span>
+                </div>
 
-            <p className="text-gray-400 leading-relaxed mb-6 transition-all duration-500 min-h-[80px] md:min-h-[100px]">
-              {content[lang].projects[activeProject].description}
-            </p>
+                <h2
+                  className={`${forceSingleLineTitle ? "whitespace-nowrap text-2xl md:text-[28px]" : "project-title-lock text-2xl md:text-[32px]"} font-semibold text-white leading-[1.08] tracking-tight transition-all duration-500 [text-wrap:balance]`}
+                >
+                  {activeProjectData.title}
+                </h2>
 
-            <button className="inline-flex items-center justify-center bg-[#76B900] text-black font-medium text-sm px-4 py-2 w-fit hover:brightness-110 transition">
-              {lang === "zh" ? "深入瞭解" : "Learn More"}
-            </button>
+                <p className="project-summary-lock max-w-[430px] text-sm leading-[1.65] text-gray-400 transition-all duration-500 md:text-[15px]">
+                  {projectSummary}
+                </p>
+              </div>
+
+              {projectBullets.length > 0 && (
+                <div className="flex max-w-[440px] flex-wrap gap-2">
+                  {projectBullets.slice(0, 3).map((bullet) => (
+                    <span
+                      key={bullet}
+                      className="max-w-full whitespace-nowrap rounded-full border border-white/10 bg-white/[0.035] px-2.5 py-1 text-[12px] leading-tight text-gray-300"
+                    >
+                      {bullet}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              <div className="max-w-[430px] border-t border-white/10 pt-4">
+                <div className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#76B900]"></span>
+                  <div className="min-w-0 space-y-1">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#76B900]">
+                      {impactLabel}
+                    </div>
+                    <p className="project-impact-lock text-sm leading-[1.6] text-gray-300">
+                      {activeProjectData.impact}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* RIGHT: Visual System Display */}
-          <div className="hidden md:flex items-center justify-center">
+          <div className="hidden h-[460px] md:flex items-center justify-start">
             <div
               key={`${activeProject}-${cycle}`}
-              className="w-full max-w-md h-[260px] relative flex items-center justify-center"
+              className="w-full max-w-[540px] h-[330px] relative flex items-center justify-center"
             >
 
           {/* Resume GPT animation */}
           {activeProject === 0 && (
-            <div className="w-full h-full bg-[#0a0a0a] border border-white/10 p-6 flex flex-col justify-center">
-              <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
-                <img
-                  src={openaiLogo}
-                  alt="OpenAI"
-                  className="w-4 h-4 object-contain"
-                />
-                <span className="text-gray-400">OpenAI</span>
-              </div>
-              <div className="text-xs text-gray-500 mb-2">INPUT</div>
-              <div
-                className={`inline-block text-sm text-gray-300 mb-4 font-mono overflow-hidden whitespace-nowrap border-r-2 border-[#76B900] pr-2 ${typingStage === "input" ? "animate-typing" : ""}`}
-                style={{
-                  animationDuration: `${"Who is Benjamin Tsao?".length * 0.05}s`,
-                  maxWidth: "fit-content"
-                }}
-              >
-                Who is Benjamin Tsao?
+            <div className="relative flex w-full h-full flex-col rounded-xl border border-white/10 bg-[#0a0a0a] p-5 overflow-hidden shadow-[0_0_40px_rgba(118,185,0,0.08)]">
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.04]">
+                  <img
+                    src={openaiLogo}
+                    alt="OpenAI"
+                    className="h-6 w-6 object-contain"
+                  />
+                </div>
+                <div className="text-base font-medium text-gray-100">Profile Assistant</div>
+                <div className="mt-1 max-w-sm text-xs leading-relaxed text-gray-500">
+                  {lang === "zh"
+                    ? "回答關於 Benjamin 的背景、AI 經驗與專案。"
+                    : "Answers questions about Benjamin's background, AI work, and projects."}
+                </div>
               </div>
 
-              <div className="text-xs text-gray-500 mb-2">OUTPUT</div>
-              <div
-                className={`inline-block text-sm text-white font-mono overflow-hidden whitespace-nowrap border-r-2 border-[#76B900] pr-2 ${typingStage === "output" ? "animate-typing" : "opacity-0"}`}
-                style={{
-                  animationDuration: `1.8s`,
-                  maxWidth: "fit-content"
-                }}
-              >
-                Benjamin Tsao is a professional majoring in ...
+              <div className="mt-5 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5">
+                <div className="flex gap-3">
+                  <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 ring-1 ring-emerald-400/20">
+                    <img src={openaiLogo} alt="Profile Assistant" className="h-4 w-4 object-contain" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-1 text-[11px] font-medium text-gray-400">Profile Assistant</div>
+                    <span
+                      className={`inline-block max-w-fit overflow-hidden whitespace-nowrap border-r-2 border-[#76B900] pr-2 font-mono text-sm leading-tight text-white ${typingStage === "output" ? "animate-typing" : "opacity-0"}`}
+                      style={{
+                        animationDuration: `2.2s`,
+                        maxWidth: "fit-content",
+                      }}
+                    >
+                      {lang === "zh"
+                        ? "他結合資訊工程、國際商務與 AI 系統實作..."
+                        : "He combines CS, business training, and AI system building..."}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-auto">
+                <div className="rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3">
+                  <div className="mb-1 text-[10px] uppercase tracking-[0.14em] text-gray-500">
+                    INPUT
+                  </div>
+                  <div
+                    className={`inline-block max-w-fit overflow-hidden whitespace-nowrap border-r-2 border-[#76B900] pr-2 font-mono text-sm leading-tight text-gray-200 ${typingStage === "input" ? "animate-typing" : ""}`}
+                    style={{
+                      animationDuration: `${"Is Benjamin a good fit for AI roles?".length * 0.045}s`,
+                      maxWidth: "fit-content",
+                    }}
+                  >
+                    {lang === "zh" ? "Benjamin 適合 AI 相關職位嗎？" : "Is Benjamin a good fit for AI roles?"}
+                  </div>
+                </div>
               </div>
             </div>
           )}
 
               {/* Job System animation */}
               {activeProject === 1 && (
-                <div className="w-full h-full flex flex-col items-center justify-center text-sm gap-3">
-                  <div className="flex gap-2 text-gray-400">
-                    <span>[ LinkedIn ]</span>
-                    <span>[ Indeed ]</span>
-                    <span>[ API ]</span>
+                <div
+                  className="relative flex w-full h-full flex-col rounded-xl border border-white/10 bg-[#0a0a0a] p-5 overflow-hidden shadow-[0_0_40px_rgba(118,185,0,0.08)]"
+                  style={{
+                    backgroundImage: "radial-gradient(rgba(148,163,184,0.18) 1px, transparent 1px)",
+                    backgroundSize: "14px 14px",
+                  }}
+                >
+                  <div className="mb-4 flex items-center justify-between gap-3">
+                    <div>
+                      <div className="text-sm uppercase tracking-[0.14em] text-[#76B900]">
+                        n8n Workflow
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1">
+                        {lang === "zh" ? "104 → OpenAI → LINE" : "104 → OpenAI → LINE"}
+                      </div>
+                    </div>
+                    <span className="rounded-full border border-[#76B900]/30 bg-[#76B900]/10 px-3 py-1 text-xs text-[#76B900]">
+                      n8n
+                    </span>
                   </div>
 
-                  <div className="w-[2px] h-6 bg-gray-600"></div>
+                  <div className="flex flex-1 flex-col justify-between">
+                    <div className="grid grid-cols-5 gap-3">
+                      {[
+                        ["T", lang === "zh" ? "排程" : "Trigger", lang === "zh" ? "每日執行" : "Daily"],
+                        ["104", "104 API", lang === "zh" ? "搜尋職缺" : "Search"],
+                        ["S", "Split Out", lang === "zh" ? "逐筆處理" : "Items"],
+                        ["F", lang === "zh" ? "薪資過濾" : "Salary", "Kept"],
+                        ["AI", "OpenAI", lang === "zh" ? "回覆文字" : "Response"],
+                      ].map(([icon, title, subtitle], index) => (
+                        <div
+                          key={title}
+                          className={`relative min-w-0 rounded-lg border px-2.5 py-3 h-[80px] bg-[#1b1b1b]/90 ${
+                            index === 4
+                              ? "border-[#76B900]/35 shadow-[0_0_18px_rgba(118,185,0,0.10)]"
+                              : "border-white/10"
+                          }`}
+                        >
+                          {index !== 4 && (
+                            <span className="absolute -right-2 top-1/2 z-10 -translate-y-1/2 text-xs text-gray-600">
+                              →
+                            </span>
+                          )}
+                          <div className={index === 4 ? "text-sm font-semibold text-[#76B900]" : "text-sm font-semibold text-gray-300"}>
+                            {icon}
+                          </div>
+                          <div className="mt-1 truncate text-xs font-medium text-white">
+                            {title}
+                          </div>
+                          <div className="truncate text-[11px] text-gray-500">
+                            {subtitle}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
 
-                  <div className="text-[#76B900] relative">
-                    <span className="animate-pulse">Filter</span>
-                    <span className="absolute inset-0 blur-md opacity-50 bg-[#76B900]"></span>
+                    <div className="flex items-center gap-2 px-4 text-xs text-gray-500">
+                      <div className="h-px flex-1 bg-white/10"></div>
+                      <span>{lang === "zh" ? "保留符合條件的職缺" : "Kept jobs continue"}</span>
+                      <div className="h-px flex-1 bg-white/10"></div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-3">
+                      {[
+                        ["F", lang === "zh" ? "過濾不符合" : "Reject filter", lang === "zh" ? "排除職缺" : "Remove"],
+                        ["{}", lang === "zh" ? "分類符合" : "Classify", lang === "zh" ? "分裝資料" : "Package"],
+                        ["LINE", lang === "zh" ? "推播 LINE" : "Send LINE", lang === "zh" ? "通知用戶" : "Notify"],
+                      ].map(([icon, title, subtitle], index) => (
+                        <div
+                          key={title}
+                          className={`relative min-w-0 rounded-lg border px-4 py-3 h-[86px] bg-[#1b1b1b]/90 ${
+                            index === 2
+                              ? "border-[#76B900]/35 shadow-[0_0_18px_rgba(118,185,0,0.10)]"
+                              : "border-white/10"
+                          }`}
+                        >
+                          {index !== 2 && (
+                            <span className="absolute -right-2 top-1/2 z-10 -translate-y-1/2 text-xs text-gray-600">
+                              →
+                            </span>
+                          )}
+                          <div className={index === 2 ? "text-sm font-semibold text-[#76B900]" : "text-sm font-semibold text-gray-300"}>
+                            {icon}
+                          </div>
+                          <div className="mt-1 truncate text-sm font-medium text-white">
+                            {title}
+                          </div>
+                          <div className="truncate text-[11px] text-gray-500">
+                            {subtitle}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-
-                  <div className="w-[2px] h-6 bg-gray-600"></div>
-
-                  <div className="text-white">Top Jobs</div>
                 </div>
               )}
 
-              {/* RAG animation */}
+              {/* ITCE learning assistant animation */}
               {activeProject === 2 && (
-                <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-sm">
-                  <div className="text-gray-400">User Query</div>
+                <div className="relative flex w-full h-full flex-col rounded-xl border border-white/10 bg-[#0a0a0a] p-4 overflow-hidden shadow-[0_0_40px_rgba(118,185,0,0.08)]">
+                  <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-[#76B900] to-transparent animate-[itce-scan_3s_ease-in-out_infinite]"></div>
 
-                  <div className="w-[2px] h-6 bg-gray-600"></div>
-
-                  <div className="relative text-[#76B900]">
-                    <span className="animate-pulse">Vector DB</span>
-                    <span className="absolute inset-0 blur-lg opacity-40 bg-[#76B900]"></span>
+                  <div className="mb-2.5 flex items-center justify-between gap-3">
+                    <div>
+                      <div className="text-sm uppercase tracking-[0.14em] text-[#76B900]">
+                        ITCE RAG Workspace
+                      </div>
+                      <div className="text-xs text-gray-500 mt-0.5">
+                        {lang === "zh" ? "Streamlit 互動學習介面" : "Streamlit learning interface"}
+                      </div>
+                    </div>
+                    <div className="flex gap-1.5">
+                      {["PDF", "JSONL", "RAG"].map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-[#76B900]/30 bg-[#76B900]/10 px-2.5 py-0.5 text-xs text-[#76B900]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="text-xs text-gray-500">(Streamlit UI)</div>
+                  <div className="rounded-lg border border-white/10 bg-white/[0.04] p-3">
+                    <div className="mb-2 flex items-center justify-between text-[11px] uppercase tracking-[0.14em] text-gray-500">
+                      <span>Streamlit Input</span>
+                      <span className="text-[#76B900]">
+                        {lang === "zh" ? "Starter / Text" : "Starter / Text"}
+                      </span>
+                    </div>
+                    <div className="truncate rounded-md bg-black/25 px-3 py-1.5 font-mono text-[15px] text-gray-200">
+                      {lang === "zh"
+                        ? "Incoterms 常考哪些觀念？"
+                        : "What does Incoterms usually test?"}
+                    </div>
+                    <div className="mt-1.5 grid grid-cols-3 gap-2 text-center text-xs text-gray-500">
+                      {(lang === "zh"
+                        ? ["學觀念", "解題", "整理筆記"]
+                        : ["Concept", "Solve", "Notes"]
+                      ).map((item) => (
+                        <span key={item} className="rounded border border-white/10 bg-black/20 px-1.5 py-1">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
-                  <div className="w-[2px] h-6 bg-gray-600"></div>
+                  <div className="my-1.5 flex items-center gap-2 text-[11px] text-gray-500">
+                    <span className="h-px flex-1 bg-white/10"></span>
+                    <span>{lang === "zh" ? "需要題庫時才檢索" : "Retrieve only when needed"}</span>
+                    <span className="h-px flex-1 bg-white/10"></span>
+                  </div>
 
-                  <div className="text-white">LLM Response</div>
+                  <div className="rounded-lg border border-white/10 bg-white/[0.04] p-3">
+                    <div className="mb-2 flex items-center justify-between">
+                      <span className="text-[11px] uppercase tracking-[0.14em] text-gray-500">
+                        RAG Pipeline
+                      </span>
+                      <span className="flex items-center gap-1 text-xs text-[#76B900]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#76B900] animate-pulse"></span>
+                        INCOTERMS
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-4 gap-2 text-center text-xs">
+                      {["PDF", "JSONL", "Vector", lang === "zh" ? "第14-34題" : "Q14-Q34"].map((item, index) => (
+                        <div
+                          key={item}
+                          className={`relative rounded border px-1.5 py-1 ${
+                            index === 3
+                              ? "border-[#76B900]/35 bg-[#76B900]/10 text-[#76B900]"
+                              : "border-white/10 bg-black/20 text-gray-400"
+                          }`}
+                        >
+                          {index !== 3 && (
+                            <span className="absolute -right-1.5 top-1/2 z-10 -translate-y-1/2 text-gray-600">
+                              →
+                            </span>
+                          )}
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-auto grid grid-cols-4 gap-2 pt-2 pb-0.5 text-center text-xs">
+                    {(lang === "zh"
+                      ? ["題目解析", "觀念教學", "常考觀念", "互動教學"]
+                      : ["Analysis", "Teaching", "Frequent", "Tutoring"]
+                    ).map((item) => (
+                      <div key={item} className="rounded border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-gray-300">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Smart factory monitoring animation */}
+              {activeProject === 3 && (
+                <div
+                  className="relative w-full h-full rounded-xl border border-white/10 bg-[#0a0a0a] p-5 overflow-hidden shadow-[0_0_40px_rgba(118,185,0,0.08)]"
+                  style={{
+                    backgroundImage: "radial-gradient(rgba(148,163,184,0.16) 1px, transparent 1px)",
+                    backgroundSize: "14px 14px",
+                  }}
+                >
+                  <div className="mb-4 flex items-center justify-between gap-3">
+                    <div>
+                      <div className="text-sm uppercase tracking-[0.14em] text-[#76B900]">
+                        Smart Factory Loop
+                      </div>
+                      <div className="text-xs text-gray-500 mt-0.5">
+                        {lang === "zh" ? "n8n → Sheets → OpenAI" : "n8n → Sheets → OpenAI"}
+                      </div>
+                    </div>
+                    <span className="rounded-full border border-[#76B900]/30 bg-[#76B900]/10 px-2.5 py-0.5 text-xs text-[#76B900]">
+                      {lang === "zh" ? "回寫" : "Writeback"}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-[1.02fr_1fr] gap-3">
+                    <div className="rounded-lg border border-white/10 bg-[#1b1b1b]/90 p-3.5">
+                      <div className="mb-2 flex items-center justify-between">
+                        <div>
+                          <div className="text-xs uppercase tracking-[0.12em] text-gray-500">
+                            Machine Data
+                          </div>
+                          <div className="mt-1 text-lg font-semibold text-white">M-03 / Etch</div>
+                        </div>
+                        <div className="flex h-7 w-7 items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/10 text-xs text-amber-300">
+                          !
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        {[
+                          ["TEMP", "82.4 C", "w-[82%]"],
+                          ["PRESS", "2.1 bar", "w-[58%]"],
+                          ["VIB", "0.38 g", "w-[72%]"],
+                        ].map(([label, value, width]) => (
+                          <div key={label}>
+                            <div className="mb-1 flex justify-between text-xs text-gray-400">
+                              <span>{label}</span>
+                              <span>{value}</span>
+                            </div>
+                            <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
+                              <div className={`h-full rounded-full bg-[#76B900] ${width}`}></div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-3 rounded border border-amber-400/20 bg-amber-400/10 px-2.5 py-1 text-xs text-amber-200">
+                        {lang === "zh" ? "Rule Status: 注意" : "Rule Status: Warning"}
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="rounded-lg border border-white/10 bg-[#1b1b1b]/90 p-3.5">
+                        <div className="mb-2 flex items-center justify-between">
+                          <span className="text-xs uppercase tracking-[0.12em] text-gray-500">
+                            Google Sheet
+                          </span>
+                          <span className="text-xs text-[#76B900]">
+                            {lang === "zh" ? "近 5 筆" : "Last 5"}
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-3 gap-1.5 text-center text-xs">
+                          {["M-01", "M-02", "M-03"].map((machine) => (
+                            <div
+                              key={machine}
+                              className={`rounded border px-1.5 py-1 ${
+                                machine === "M-03"
+                                  ? "border-[#76B900]/35 bg-[#76B900]/10 text-[#76B900]"
+                                  : "border-white/10 bg-black/20 text-gray-500"
+                              }`}
+                            >
+                              {machine}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="rounded-lg border border-[#76B900]/30 bg-[#76B900]/10 p-3.5">
+                        <div className="mb-1.5 flex items-center justify-between">
+                          <span className="text-xs uppercase tracking-[0.12em] text-[#76B900]">
+                            OpenAI Diagnosis
+                          </span>
+                          <span className="h-2 w-2 rounded-full bg-[#76B900] animate-pulse"></span>
+                        </div>
+                        <div className="text-lg font-semibold text-white">
+                          {lang === "zh" ? "AI Status: 注意" : "AI Status: Attention"}
+                        </div>
+                        <div className="mt-1 truncate text-xs text-gray-400">
+                          {lang === "zh" ? "Action: 檢查冷卻與壓力" : "Action: Check cooling / pressure"}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 flex items-center gap-2 text-[11px] text-gray-500">
+                    <span className="h-px flex-1 bg-white/10"></span>
+                    {["row_id", "ai_status", "action"].map((field) => (
+                      <span key={field} className="rounded border border-white/10 bg-white/[0.04] px-1.5 py-0.5">
+                        {field}
+                      </span>
+                    ))}
+                    <span className="h-px flex-1 bg-white/10"></span>
+                  </div>
                 </div>
               )}
 
@@ -600,84 +980,119 @@ export default function Portfolio() {
       {/* Section separation is now handled by background color alternation */}
 
       {/* Skills */}
-      <section id="skills" className="w-full bg-[#0a0a0a]">
-        <div className="px-4 md:px-6 py-32 md:py-40 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-semibold tracking-tight text-white mb-12 text-center">
-            {content[lang].nav.skills}
-          </h2>
+      <section id="skills" className="relative w-full overflow-hidden bg-[#0a0a0a]">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.16] animate-mesh-move"
+          style={{
+            backgroundImage: "radial-gradient(rgba(118,185,0,0.45) 1px, transparent 1px)",
+            backgroundSize: "26px 26px",
+          }}
+        ></div>
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#76B900]/10 blur-3xl"></div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            {content[lang].skills.map((skill) => (
-              <span
-                key={skill}
-                className="px-6 py-2 bg-white/10 rounded-full text-sm hover:bg-[#7c8395] hover:text-white hover:-translate-y-[1px] transition duration-300"
-              >
-                {skill}
-              </span>
-            ))}
+        <div className="relative px-4 md:px-6 py-32 md:py-40 max-w-[1040px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-14 items-start">
+            <div>
+              <div className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#76B900]">
+                <span className="h-px w-8 bg-[#76B900]"></span>
+                <span>{content[lang].nav.skills}</span>
+              </div>
+              <h2 className="max-w-sm text-3xl md:text-[38px] font-semibold leading-tight tracking-tight text-white">
+                {lang === "zh" ? "我用這些能力把 AI 系統做出來。" : "The skill set I use to build practical AI systems."}
+              </h2>
+              <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-500">
+                {lang === "zh"
+                  ? "從提示詞、資料流程到商業情境，我重視的是讓系統真的能被使用。"
+                  : "From prompting and automation to product context, I focus on systems that can be used in real workflows."}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {(lang === "zh"
+                ? [
+                    ["AI Systems", ["提示詞工程", "RAG 應用", "OpenAI API"]],
+                    ["Automation", ["n8n 流程", "API 串接", "資料整理"]],
+                    ["Business", ["專案管理", "商業分析", "跨部門協作"]],
+                  ]
+                : [
+                    ["AI Systems", ["Prompt Engineering", "RAG Applications", "OpenAI API"]],
+                    ["Automation", ["n8n Workflows", "API Integration", "Data Handling"]],
+                    ["Business", ["Project Management", "Business Analysis", "Cross-functional Work"]],
+                  ]).map(([group, items]) => (
+                <div key={group} className="group border border-white/10 bg-[#0f0f0f]/85 p-5 backdrop-blur transition hover:border-[#76B900]/40 hover:bg-white/[0.055]">
+                  <div className="mb-5 flex items-center justify-between">
+                    <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-[#76B900]">{group}</h3>
+                    <span className="h-2 w-2 rounded-full bg-[#76B900] opacity-60 transition group-hover:opacity-100"></span>
+                  </div>
+                  <div className="space-y-3">
+                    {items.map((item) => (
+                      <div key={item} className="flex items-center gap-3 text-sm text-gray-300">
+                        <span className="h-px w-5 bg-white/20"></span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
       {/* Section separation is now handled by background color alternation */}
 
       {/* Education */}
-      <section id="education" className="px-4 md:px-6 py-32 md:py-40 max-w-4xl mx-auto bg-[#050505]">
-        <h2 className="text-3xl font-semibold tracking-tight text-white mb-12 text-center">
-          {content[lang].education.title}
-        </h2>
-
-        <div key={lang} className="space-y-10 max-w-3xl mx-auto">
-          <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-              <span className="text-sm text-gray-400 order-1 sm:order-2 sm:text-right">2019 — 2024</span>
-              <div className="order-2 sm:order-1">
-                <h3 className="text-lg font-medium text-white">
-                  {content[lang].education.ncuName}
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  {content[lang].education.ncuProgram}<br/>
-                  {content[lang].education.ncuDegree}
-                </p>
-              </div>
-            </div>
-            <p className="text-gray-400 text-sm mt-3">
-              {content[lang].education.ncuDesc}
-            </p>
-          </div>
-
-          <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-              <span className="text-sm text-gray-400 order-1 sm:order-2 sm:text-right">2025 — 2026</span>
-              <div className="order-2 sm:order-1">
-                <h3 className="text-lg font-medium text-white">
-                  {content[lang].education.itiName}
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  {content[lang].education.itiProgram}
-                </p>
-              </div>
-            </div>
-            <p className="text-gray-400 text-sm mt-3">
-              {content[lang].education.itiDesc}
-            </p>
-          </div>
+      <section id="education" className="relative overflow-hidden bg-[#050505]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(118,185,0,0.2),transparent_30%),radial-gradient(circle_at_78%_70%,rgba(255,255,255,0.08),transparent_32%)]"></div>
+        <div className="pointer-events-none absolute inset-0 opacity-40 animate-edu-bands bg-[linear-gradient(115deg,transparent_0%,transparent_42%,rgba(118,185,0,0.12)_49%,transparent_56%,transparent_100%)] bg-[length:240%_240%]"></div>
+        <div className="pointer-events-none absolute left-1/2 top-0 h-full w-[820px] -translate-x-1/2 opacity-65">
+          <div className="absolute left-0 top-[18%] h-px w-full rotate-[-8deg] bg-gradient-to-r from-transparent via-[#76B900]/65 to-transparent shadow-[0_0_18px_rgba(118,185,0,0.35)]"></div>
+          <div className="absolute left-0 top-[54%] h-px w-full rotate-[7deg] bg-gradient-to-r from-transparent via-white/35 to-transparent shadow-[0_0_18px_rgba(255,255,255,0.2)]"></div>
+          <div className="absolute left-[18%] top-[22%] h-2.5 w-2.5 rounded-full bg-[#76B900] shadow-[0_0_26px_rgba(118,185,0,0.9)] animate-edu-node"></div>
+          <div className="absolute right-[20%] top-[58%] h-2.5 w-2.5 rounded-full bg-white/80 shadow-[0_0_24px_rgba(255,255,255,0.7)] animate-edu-node-delayed"></div>
         </div>
-      </section>
-      {/* Section separation is now handled by background color alternation */}
 
-      {/* Certification */}
-      <section id="certification" className="w-full bg-[#0a0a0a]">
-        <div className="px-4 md:px-6 py-32 md:py-40 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-semibold tracking-tight text-white mb-12 text-center">
-            {content[lang].nav.certification}
-          </h2>
+        <div className="relative mx-auto grid max-w-[1040px] grid-cols-1 items-start gap-10 px-4 py-32 md:grid-cols-[0.75fr_1.25fr] md:gap-16 md:px-6 md:py-40">
+          <div>
+            <div className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#76B900]">
+              <span className="h-px w-8 bg-[#76B900]"></span>
+              <span>{content[lang].education.title}</span>
+            </div>
+            <h2 className="max-w-sm text-3xl md:text-[38px] font-semibold leading-tight tracking-tight text-white">
+              {lang === "zh" ? "橫跨資訊工程與國際商務的訓練。" : "Training across computer science and international business."}
+            </h2>
+          </div>
 
-          <div className="space-y-8 max-w-3xl mx-auto">
-            {content[lang].certification.map((item) => (
-              <div key={item} className="group p-5 rounded-xl bg-white/5 backdrop-blur border border-white/10 hover:shadow-lg transition-shadow duration-200 md:hover:scale-[1.005]">
-                <h3 className="text-md font-medium text-white">
-                  {item}
-                </h3>
+          <div key={lang} className="relative space-y-5">
+            <div className="absolute left-[7px] top-3 bottom-3 w-px bg-white/10"></div>
+            {[
+              {
+                period: "2019 — 2024",
+                school: content[lang].education.ncuName,
+                program: `${content[lang].education.ncuProgram}\n${content[lang].education.ncuDegree}`,
+                desc: content[lang].education.ncuDesc,
+              },
+              {
+                period: "2025 — 2026",
+                school: content[lang].education.itiName,
+                program: content[lang].education.itiProgram,
+                desc: content[lang].education.itiDesc,
+              },
+            ].map((item) => (
+              <div key={item.school} className="relative pl-9">
+                <span className="absolute left-0 top-2 h-3.5 w-3.5 rounded-full border border-[#76B900] bg-[#050505] shadow-[0_0_16px_rgba(118,185,0,0.35)]"></span>
+                <div className="relative overflow-hidden border border-white/10 bg-[#101010]/80 px-5 py-5 shadow-[0_22px_70px_rgba(0,0,0,0.25)] backdrop-blur transition hover:border-[#76B900]/35 hover:bg-white/[0.055]">
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#76B900]/45 to-transparent"></div>
+                  <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <h3 className="text-lg font-medium text-white">{item.school}</h3>
+                      <p className="mt-1 whitespace-pre-line text-sm leading-relaxed text-gray-500">{item.program}</p>
+                    </div>
+                    <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-[#76B900]">
+                      {item.period}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-400">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -685,19 +1100,84 @@ export default function Portfolio() {
       </section>
       {/* Section separation is now handled by background color alternation */}
 
-      {/* Contact */}
-      <section id="contact" className="px-4 md:px-6 py-40 text-center bg-[#050505]">
-        <h2 className="text-3xl font-semibold tracking-tight text-white mb-4">{content[lang].contact.title}</h2>
-        <p className="text-gray-400 mb-8">
-          {content[lang].contact.desc}
-        </p>
+      {/* Certification */}
+      <section id="certification" className="relative w-full overflow-hidden bg-[#0a0a0a]">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.22] animate-mesh-move"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(118,185,0,0.38) 1px, transparent 1px), linear-gradient(90deg, rgba(118,185,0,0.38) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        ></div>
+        <div className="pointer-events-none absolute left-[-10%] top-12 h-72 w-72 rounded-full bg-[#76B900]/16 blur-3xl animate-cert-glow"></div>
+        <div className="pointer-events-none absolute bottom-8 right-[-8%] h-80 w-80 rounded-full bg-[#76B900]/12 blur-3xl animate-cert-glow-delayed"></div>
+        <div className="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-[#76B900]/70 to-transparent animate-cert-scan"></div>
+        <div className="pointer-events-none absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-[#76B900]/25 to-transparent"></div>
 
-        <a
-          href="mailto:benjamintsao2000@gmail.com"
-          className="inline-block px-10 py-4 bg-white text-black rounded-full hover:bg-gray-200 transition duration-300"
-        >
-          {content[lang].contact.button}
-        </a>
+        <div className="relative px-4 md:px-6 py-32 md:py-40 max-w-[1040px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-[0.78fr_1.22fr] gap-10 md:gap-14 items-start">
+            <div>
+              <div className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#76B900]">
+                <span className="h-px w-8 bg-[#76B900]"></span>
+                <span>{content[lang].nav.certification}</span>
+              </div>
+              <h2 className="max-w-sm text-3xl md:text-[38px] font-semibold leading-tight tracking-tight text-white">
+                {lang === "zh" ? "持續補強 AI、專案與實作能力。" : "Credentials that reinforce AI, project, and execution skills."}
+              </h2>
+            </div>
+
+            <div className="border-y border-white/10">
+              {content[lang].certification.map((item) => (
+                <div key={item} className="group grid grid-cols-[28px_1fr] items-center gap-4 border-b border-white/10 py-5 last:border-b-0">
+                  <span className="h-2 w-2 rounded-full bg-[#76B900] shadow-[0_0_16px_rgba(118,185,0,0.45)] transition group-hover:scale-125"></span>
+                  <h3 className="text-sm font-medium leading-relaxed text-gray-200 transition group-hover:text-white">
+                    {item}
+                  </h3>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Section separation is now handled by background color alternation */}
+
+      {/* Contact */}
+      <section id="contact" className="relative overflow-hidden bg-[#050505] px-4 py-32 md:px-6 md:py-40">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(118,185,0,0.18),transparent_32%),linear-gradient(180deg,transparent,rgba(118,185,0,0.06))]"></div>
+        <div className="pointer-events-none absolute left-1/2 top-24 h-[420px] w-[420px] -translate-x-1/2 rounded-full border border-[#76B900]/10"></div>
+        <div className="pointer-events-none absolute left-1/2 top-10 h-px w-[min(760px,80vw)] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#76B900]/55 to-transparent"></div>
+
+        <div className="relative mx-auto flex max-w-[920px] flex-col items-center text-center">
+          <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-[#76B900]/25 bg-[#76B900]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#76B900]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#76B900] shadow-[0_0_14px_rgba(118,185,0,0.8)]"></span>
+            <span>Contact</span>
+          </div>
+
+          <h2 className="w-full max-w-[860px] text-[clamp(3rem,6.2vw,5.4rem)] font-semibold leading-[0.95] tracking-tight text-white">
+            AI First,
+            <span className="block text-[#76B900]">Human Centered</span>
+          </h2>
+
+          <p key={`contact-desc-${lang}`} className="mt-8 min-h-[58px] w-full max-w-[620px] px-3 text-center text-lg leading-relaxed text-gray-400 md:text-xl">
+            {content[lang].contact.desc}
+          </p>
+
+          <div className="mt-12 flex w-full max-w-2xl flex-col gap-3 border border-white/10 bg-white/[0.035] p-3 sm:flex-row sm:items-center sm:justify-between">
+            <a
+              key={`contact-button-${lang}`}
+              href="mailto:benjamintsao2000@gmail.com"
+              className="group inline-flex min-h-[50px] shrink-0 items-center justify-center gap-3 bg-[#76B900] px-6 text-sm font-semibold text-black hover:bg-[#8bdc00]"
+            >
+              <span>{content[lang].contact.button}</span>
+              <span className="transition group-hover:translate-x-1">→</span>
+            </a>
+            <div className="flex min-h-[50px] flex-1 flex-col justify-center px-2 text-center text-sm leading-relaxed text-gray-500 sm:text-right">
+              <span className="font-medium text-gray-300">benjamintsao2000@gmail.com</span>
+              <span>AI / Automation / Product</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
@@ -724,15 +1204,70 @@ export default function Portfolio() {
       from { width: 0 }
       to { width: 100% }
     }
-    .animate-typing {
-      display: inline-block;
-      animation: typing steps(30, end) 1 normal both;
+	    .animate-typing {
+	      display: inline-block;
+	      animation: typing steps(30, end) 1 normal both;
+	    }
+	    .project-title-lock,
+	    .project-summary-lock,
+	    .project-impact-lock {
+	      display: -webkit-box;
+	      -webkit-box-orient: vertical;
+	      overflow: hidden;
+	    }
+	    .project-title-lock {
+	      -webkit-line-clamp: 2;
+	    }
+	    .project-summary-lock {
+	      -webkit-line-clamp: 2;
+	    }
+	    .project-impact-lock {
+	      -webkit-line-clamp: 2;
+	    }
+	    @keyframes progress-bar {
+	      from { width: 0% }
+	      to { width: 100% }
     }
-    @keyframes progress-bar {
-      from { width: 0% }
-      to { width: 100% }
-    }
-    `}
+	    @keyframes itce-scan {
+	      0%, 100% { opacity: 0.25; transform: translateY(18px); }
+	      50% { opacity: 1; transform: translateY(238px); }
+	    }
+	    @keyframes cert-scan {
+	      0%, 100% { transform: translateY(-110px); opacity: 0.22; }
+	      50% { transform: translateY(110px); opacity: 0.85; }
+	    }
+	    .animate-cert-scan {
+	      animation: cert-scan 5s ease-in-out infinite;
+	    }
+	    @keyframes cert-glow {
+	      0%, 100% { opacity: 0.45; transform: translate3d(0, 0, 0) scale(1); }
+	      50% { opacity: 0.9; transform: translate3d(36px, 20px, 0) scale(1.18); }
+	    }
+	    .animate-cert-glow {
+	      animation: cert-glow 7s ease-in-out infinite;
+	    }
+	    .animate-cert-glow-delayed {
+	      animation: cert-glow 8s ease-in-out infinite reverse;
+	    }
+	    @keyframes edu-node {
+	      0%, 100% { opacity: 0.35; transform: translate3d(0, 0, 0) scale(1); }
+	      50% { opacity: 1; transform: translate3d(18px, -10px, 0) scale(1.35); }
+	    }
+	    @keyframes edu-bands {
+	      0% { background-position: 0% 50%; opacity: 0.28; }
+	      50% { background-position: 100% 50%; opacity: 0.55; }
+	      100% { background-position: 0% 50%; opacity: 0.28; }
+	    }
+	    .animate-edu-node {
+	      animation: edu-node 6s ease-in-out infinite;
+	    }
+	    .animate-edu-node-delayed {
+	      animation: edu-node 7s ease-in-out infinite reverse;
+	    }
+	    .animate-edu-bands {
+	      animation: edu-bands 8s ease-in-out infinite;
+	    }
+	    `}
     </style>
     </div>
   );
