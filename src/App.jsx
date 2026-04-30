@@ -224,6 +224,24 @@ export default function Portfolio() {
     return () => timers.forEach(clearTimeout);
   }, [activeProject, lang, cycle]);
 
+  useEffect(() => {
+    const elements = document.querySelectorAll("[data-reveal]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
   const activeProjectData = content[lang].projects[activeProject];
   const [projectSummary, projectBulletBlock = ""] = activeProjectData.description.split("\n\n");
   const projectBullets = projectBulletBlock
@@ -438,51 +456,73 @@ export default function Portfolio() {
       </section>
 
       {/* About */}
-      <section id="about" className="px-4 md:px-6 pt-20 pb-28 bg-[#0a0a0a]">
-        <div className="max-w-[1040px] mx-auto grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-start">
+      <section id="about" data-reveal className="relative overflow-hidden bg-[#0a0a0a] px-4 py-28 md:px-6 md:py-36">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(118,185,0,0.14),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.045),transparent_38%)]"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-[10%] w-px bg-gradient-to-b from-transparent via-[#76B900]/30 to-transparent"></div>
+        <div className="pointer-events-none absolute left-[8%] top-20 h-px w-[38vw] bg-gradient-to-r from-transparent via-[#76B900]/35 to-transparent animate-about-signal"></div>
+
+        <div className="relative mx-auto grid max-w-[1040px] grid-cols-1 gap-10 md:grid-cols-[0.92fr_1.08fr] md:gap-14 md:items-center">
           <div>
-            <div className="mb-5 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#76B900]">
-              <span className="h-px w-8 bg-[#76B900]"></span>
+            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#76B900]/25 bg-[#76B900]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#76B900]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#76B900] shadow-[0_0_14px_rgba(118,185,0,0.75)]"></span>
               <span>{content[lang].nav.about}</span>
             </div>
-            <h2 className="max-w-md text-3xl md:text-[38px] font-semibold leading-tight tracking-tight text-white">
+            <h2 className="max-w-lg text-3xl font-semibold leading-tight tracking-tight text-white md:text-[42px]">
               {lang === "zh"
-                ? "把 AI 技術轉化為能被實際使用的系統。"
-                : "Turning AI ideas into systems people can actually use."}
+                ? "正在把 AI、自動化和商業理解放進實作裡。"
+                : "Learning by building with AI, automation, and business context."}
             </h2>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-400 md:text-[17px]">
+              {lang === "zh"
+                ? "我有資訊工程與國際商務背景，目前透過個人專案練習把資料、流程和使用情境串起來。"
+                : "I come from computer science and international business, and use personal projects to practice connecting data, workflows, and user needs."}
+            </p>
           </div>
 
-          <div className="space-y-7">
-            <div className="space-y-4 border-l border-white/10 pl-6">
-              <p className="text-base leading-relaxed text-gray-300 md:text-[17px]">
-                {content[lang].about1}
-              </p>
-              <p className="text-sm leading-relaxed text-gray-500 md:text-[15px]">
-                {content[lang].about2}
-              </p>
-            </div>
+          <div className="relative">
+            <div className="absolute -inset-6 rounded-[32px] bg-[#76B900]/10 blur-3xl"></div>
+            <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#101010]/82 p-5 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+              <div className="pointer-events-none absolute inset-0 opacity-40">
+                <div className="absolute left-0 top-10 h-px w-full bg-gradient-to-r from-transparent via-[#76B900]/45 to-transparent animate-about-signal"></div>
+                <div className="absolute bottom-14 right-0 h-px w-3/4 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-about-signal-delayed"></div>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {(lang === "zh"
-                ? [
-                    ["Technical", "AI 系統實作與自動化流程"],
-                    ["Business", "國際商務與產品溝通"],
-                    ["Execution", "從需求到可展示成果"],
-                  ]
-                : [
-                    ["Technical", "AI systems and automation workflows"],
-                    ["Business", "International business and product communication"],
-                    ["Execution", "From requirements to working demos"],
-                  ]).map(([title, desc]) => (
-                <div key={title} className="border border-white/10 bg-white/[0.035] px-4 py-4">
-                  <div className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#76B900]">
-                    {title}
-                  </div>
-                  <p className="text-sm leading-relaxed text-gray-400">
-                    {desc}
-                  </p>
+              <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#76B900]">Profile Brief</p>
+                  <p className="mt-1 text-sm text-gray-500">{lang === "zh" ? "目前的學習與實作方向" : "Current learning and building direction"}</p>
                 </div>
-              ))}
+                <span className="rounded-full border border-[#76B900]/25 px-3 py-1 text-xs font-semibold text-[#76B900]">
+                  Open
+                </span>
+              </div>
+
+              <div className="space-y-3">
+                {(lang === "zh"
+                  ? [
+                      ["背景", "資訊工程 × 國際商務"],
+                      ["目前方向", "AI 應用、自動化流程、產品理解"],
+                      ["工作方式", "先釐清問題，再做可展示的原型"],
+                    ]
+                  : [
+                      ["Background", "Computer science × international business"],
+                      ["Focus", "AI applications, automation, product context"],
+                      ["Approach", "Clarify the problem, then build a demo"],
+                    ]).map(([label, value]) => (
+                  <div key={label} className="grid grid-cols-[110px_1fr] gap-4 rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-4 transition hover:border-[#76B900]/35 hover:bg-white/[0.055]">
+                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">{label}</span>
+                    <span className="text-sm font-medium leading-relaxed text-gray-200">{value}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {(lang === "zh" ? ["AI 專案", "n8n 自動化", "商業溝通"] : ["AI Projects", "n8n Automation", "Business Communication"]).map((item) => (
+                  <span key={item} className="rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-gray-400">
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -490,7 +530,18 @@ export default function Portfolio() {
       {/* Section separation is now handled by background color alternation */}
 
       {/* Projects */}
-      <section id="projects" className="px-4 md:px-6 py-32 md:py-40 max-w-[1180px] mx-auto bg-[#050505]">
+      <section id="projects" data-reveal className="relative overflow-hidden bg-[#050505] px-4 py-32 md:px-6 md:py-40">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_32%,rgba(118,185,0,0.14),transparent_30%),radial-gradient(circle_at_72%_44%,rgba(255,255,255,0.055),transparent_28%)]"></div>
+        <div className="pointer-events-none absolute left-1/2 top-28 h-[520px] w-[520px] -translate-x-1/2 rounded-full border border-white/10 opacity-45 animate-project-orbit"></div>
+        <div className="pointer-events-none absolute left-1/2 top-40 h-[360px] w-[760px] -translate-x-1/2 rounded-full border border-[#76B900]/10 opacity-55"></div>
+        <div className="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-[#76B900]/25 to-transparent"></div>
+        <div className="pointer-events-none absolute inset-0 opacity-[0.16] animate-project-data">
+          <div className="absolute left-[12%] top-20 h-24 w-px bg-gradient-to-b from-transparent via-[#76B900] to-transparent"></div>
+          <div className="absolute right-[18%] top-36 h-32 w-px bg-gradient-to-b from-transparent via-white to-transparent"></div>
+          <div className="absolute left-[46%] bottom-20 h-28 w-px bg-gradient-to-b from-transparent via-[#76B900] to-transparent"></div>
+        </div>
+
+        <div className="relative mx-auto max-w-[1180px]">
         <div className="mb-12 text-center">
           <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-wide">
             {content[lang].nav.work}
@@ -499,7 +550,7 @@ export default function Portfolio() {
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,470px)_minmax(0,540px)] justify-center gap-8 md:gap-8 items-center">
 
           {/* LEFT: Main Feature */}
-          <div className={`flex flex-col justify-center md:items-end transition-all duration-300 md:h-[450px] ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
+          <div className={`flex flex-col justify-center md:items-end transition-all duration-300 md:h-[450px] ${fade ? "opacity-100 translate-y-0 blur-0 scale-100" : "opacity-0 translate-y-3 blur-sm scale-[0.98]"}`}>
             <div className="flex h-[360px] w-full max-w-[470px] flex-col justify-center gap-5">
               <div className="space-y-3">
                 <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#76B900]">
@@ -551,7 +602,7 @@ export default function Portfolio() {
           <div className="hidden h-[460px] md:flex items-center justify-start">
             <div
               key={`${activeProject}-${cycle}`}
-              className="w-full max-w-[540px] h-[330px] relative flex items-center justify-center"
+              className="w-full max-w-[540px] h-[330px] relative flex items-center justify-center animate-project-enter"
             >
 
           {/* Resume GPT animation */}
@@ -655,7 +706,7 @@ export default function Portfolio() {
                           }`}
                         >
                           {index !== 4 && (
-                            <span className="absolute -right-2 top-1/2 z-10 -translate-y-1/2 text-xs text-gray-600">
+                            <span className="absolute -right-2 top-1/2 z-10 -translate-y-1/2 text-xs text-gray-600 animate-flow-arrow">
                               →
                             </span>
                           )}
@@ -693,7 +744,7 @@ export default function Portfolio() {
                           }`}
                         >
                           {index !== 2 && (
-                            <span className="absolute -right-2 top-1/2 z-10 -translate-y-1/2 text-xs text-gray-600">
+                            <span className="absolute -right-2 top-1/2 z-10 -translate-y-1/2 text-xs text-gray-600 animate-flow-arrow">
                               →
                             </span>
                           )}
@@ -790,7 +841,7 @@ export default function Portfolio() {
                           }`}
                         >
                           {index !== 3 && (
-                            <span className="absolute -right-1.5 top-1/2 z-10 -translate-y-1/2 text-gray-600">
+                            <span className="absolute -right-1.5 top-1/2 z-10 -translate-y-1/2 text-gray-600 animate-flow-arrow">
                               →
                             </span>
                           )}
@@ -862,7 +913,7 @@ export default function Portfolio() {
                               <span>{value}</span>
                             </div>
                             <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
-                              <div className={`h-full rounded-full bg-[#76B900] ${width}`}></div>
+                              <div className={`h-full origin-left rounded-full bg-[#76B900] ${width} animate-meter-fill`}></div>
                             </div>
                           </div>
                         ))}
@@ -976,11 +1027,12 @@ export default function Portfolio() {
             </div>
           ))}
         </div>
+        </div>
       </section>
       {/* Section separation is now handled by background color alternation */}
 
       {/* Skills */}
-      <section id="skills" className="relative w-full overflow-hidden bg-[#0a0a0a]">
+      <section id="skills" data-reveal className="relative w-full overflow-hidden bg-[#0a0a0a]">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.16] animate-mesh-move"
           style={{
@@ -998,12 +1050,12 @@ export default function Portfolio() {
                 <span>{content[lang].nav.skills}</span>
               </div>
               <h2 className="max-w-sm text-3xl md:text-[38px] font-semibold leading-tight tracking-tight text-white">
-                {lang === "zh" ? "我用這些能力把 AI 系統做出來。" : "The skill set I use to build practical AI systems."}
+                {lang === "zh" ? "我正在累積 AI、自動化與專案實作相關能力" : "I’m building skills in AI, automation, and project execution."}
               </h2>
               <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-500">
                 {lang === "zh"
-                  ? "從提示詞、資料流程到商業情境，我重視的是讓系統真的能被使用。"
-                  : "From prompting and automation to product context, I focus on systems that can be used in real workflows."}
+                  ? "也嘗試把這些能力用在實際問題上。"
+                  : "I’m also applying them to practical problems."}
               </p>
             </div>
 
@@ -1041,7 +1093,7 @@ export default function Portfolio() {
       {/* Section separation is now handled by background color alternation */}
 
       {/* Education */}
-      <section id="education" className="relative overflow-hidden bg-[#050505]">
+      <section id="education" data-reveal className="relative overflow-hidden bg-[#050505]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(118,185,0,0.2),transparent_30%),radial-gradient(circle_at_78%_70%,rgba(255,255,255,0.08),transparent_32%)]"></div>
         <div className="pointer-events-none absolute inset-0 opacity-40 animate-edu-bands bg-[linear-gradient(115deg,transparent_0%,transparent_42%,rgba(118,185,0,0.12)_49%,transparent_56%,transparent_100%)] bg-[length:240%_240%]"></div>
         <div className="pointer-events-none absolute left-1/2 top-0 h-full w-[820px] -translate-x-1/2 opacity-65">
@@ -1058,7 +1110,7 @@ export default function Portfolio() {
               <span>{content[lang].education.title}</span>
             </div>
             <h2 className="max-w-sm text-3xl md:text-[38px] font-semibold leading-tight tracking-tight text-white">
-              {lang === "zh" ? "橫跨資訊工程與國際商務的訓練。" : "Training across computer science and international business."}
+              {lang === "zh" ? "橫跨資訊工程與國際商務的訓練" : "Training across computer science and international business."}
             </h2>
           </div>
 
@@ -1101,7 +1153,7 @@ export default function Portfolio() {
       {/* Section separation is now handled by background color alternation */}
 
       {/* Certification */}
-      <section id="certification" className="relative w-full overflow-hidden bg-[#0a0a0a]">
+      <section id="certification" data-reveal className="relative w-full overflow-hidden bg-[#0a0a0a]">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.22] animate-mesh-move"
           style={{
@@ -1123,7 +1175,7 @@ export default function Portfolio() {
                 <span>{content[lang].nav.certification}</span>
               </div>
               <h2 className="max-w-sm text-3xl md:text-[38px] font-semibold leading-tight tracking-tight text-white">
-                {lang === "zh" ? "持續補強 AI、專案與實作能力。" : "Credentials that reinforce AI, project, and execution skills."}
+                {lang === "zh" ? "持續補強 AI、專案與實作能力" : "Credentials that reinforce AI, project, and execution skills."}
               </h2>
             </div>
 
@@ -1143,7 +1195,7 @@ export default function Portfolio() {
       {/* Section separation is now handled by background color alternation */}
 
       {/* Contact */}
-      <section id="contact" className="relative overflow-hidden bg-[#050505] px-4 py-32 md:px-6 md:py-40">
+      <section id="contact" data-reveal className="relative overflow-hidden bg-[#050505] px-4 py-32 md:px-6 md:py-40">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(118,185,0,0.18),transparent_32%),linear-gradient(180deg,transparent,rgba(118,185,0,0.06))]"></div>
         <div className="pointer-events-none absolute left-1/2 top-24 h-[420px] w-[420px] -translate-x-1/2 rounded-full border border-[#76B900]/10"></div>
         <div className="pointer-events-none absolute left-1/2 top-10 h-px w-[min(760px,80vw)] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#76B900]/55 to-transparent"></div>
@@ -1167,10 +1219,11 @@ export default function Portfolio() {
             <a
               key={`contact-button-${lang}`}
               href="mailto:benjamintsao2000@gmail.com"
-              className="group inline-flex min-h-[50px] shrink-0 items-center justify-center gap-3 bg-[#76B900] px-6 text-sm font-semibold text-black hover:bg-[#8bdc00]"
+              className="group relative inline-flex min-h-[50px] shrink-0 items-center justify-center gap-3 overflow-hidden bg-[#76B900] px-6 text-sm font-semibold text-black hover:bg-[#8bdc00]"
             >
-              <span>{content[lang].contact.button}</span>
-              <span className="transition group-hover:translate-x-1">→</span>
+              <span className="absolute inset-y-0 -left-1/2 w-1/3 skew-x-[-20deg] bg-white/35 opacity-0 transition duration-500 group-hover:left-[120%] group-hover:opacity-100"></span>
+              <span className="relative">{content[lang].contact.button}</span>
+              <span className="relative transition group-hover:translate-x-1">→</span>
             </a>
             <div className="flex min-h-[50px] flex-1 flex-col justify-center px-2 text-center text-sm leading-relaxed text-gray-500 sm:text-right">
               <span className="font-medium text-gray-300">benjamintsao2000@gmail.com</span>
@@ -1199,6 +1252,60 @@ export default function Portfolio() {
     }
     .animate-pulse-slow {
       animation: pulse-slow 6s ease-in-out infinite;
+    }
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 720ms ease, transform 720ms ease;
+    }
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes project-enter {
+      from { opacity: 0; transform: translateY(18px) scale(0.985); filter: blur(8px); }
+      to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+    .animate-project-enter {
+      animation: project-enter 520ms ease both;
+    }
+    @keyframes flow-arrow {
+      0%, 100% { opacity: 0.28; transform: translate(0, -50%); }
+      50% { opacity: 0.95; transform: translate(4px, -50%); }
+    }
+    .animate-flow-arrow {
+      animation: flow-arrow 1.6s ease-in-out infinite;
+    }
+    @keyframes meter-fill {
+      from { transform: scaleX(0.18); opacity: 0.55; }
+      to { transform: scaleX(1); opacity: 1; }
+    }
+    .animate-meter-fill {
+      animation: meter-fill 900ms ease-out both;
+    }
+    @keyframes project-orbit {
+      0%, 100% { opacity: 0.26; transform: translateX(-50%) rotate(0deg) scale(1); }
+      50% { opacity: 0.52; transform: translateX(-50%) rotate(8deg) scale(1.06); }
+    }
+    @keyframes project-data {
+      0%, 100% { opacity: 0.08; transform: translateY(-18px); }
+      50% { opacity: 0.22; transform: translateY(18px); }
+    }
+    .animate-project-orbit {
+      animation: project-orbit 12s ease-in-out infinite;
+    }
+    .animate-project-data {
+      animation: project-data 7s ease-in-out infinite;
+    }
+    @keyframes about-signal {
+      0%, 100% { opacity: 0.18; transform: translateX(-18px); }
+      50% { opacity: 0.75; transform: translateX(18px); }
+    }
+    .animate-about-signal {
+      animation: about-signal 6s ease-in-out infinite;
+    }
+    .animate-about-signal-delayed {
+      animation: about-signal 7s ease-in-out infinite reverse;
     }
     @keyframes typing {
       from { width: 0 }
@@ -1264,8 +1371,20 @@ export default function Portfolio() {
 	    .animate-edu-node-delayed {
 	      animation: edu-node 7s ease-in-out infinite reverse;
 	    }
-	    .animate-edu-bands {
-	      animation: edu-bands 8s ease-in-out infinite;
+    .animate-edu-bands {
+      animation: edu-bands 8s ease-in-out infinite;
+    }
+	    @media (prefers-reduced-motion: reduce) {
+	      [data-reveal],
+	      .animate-project-enter,
+	      .animate-flow-arrow,
+	      .animate-meter-fill {
+	        animation: none;
+	        opacity: 1;
+	        transform: none;
+	        filter: none;
+	        transition: none;
+	      }
 	    }
 	    `}
     </style>
